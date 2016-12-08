@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="congyh,java,linux,scala,spark,storm,hadoop,python" />
+  <meta name="keywords" content="NoSQL,MongoDB,索引," />
 
 
 
@@ -86,15 +86,22 @@
 
 
 
-<meta name="description" content="不积跬步无以至千里:)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="congyh's blog">
-<meta property="og:url" content="https://congyh.github.io/categories/MongoDB/index.html">
+<meta name="description" content="固定集合MongoDB中默认的集合是动态创建的, 可以自动增长以容纳更多的数据, 而固定集合类似于循环队列, 当集合满时会自动将最老的文档删除. 固定集合的数据被写入磁盘上的固定空间, 所以写入速度非常快.
+固定集合的创建下述指令创建一个10w字节的固定集合
+1&amp;gt; db.createCollection(&quot;collection_name&quot;, &amp;#123;&quot;capped&quot;: true, &quot;si">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB索引--高级篇">
+<meta property="og:url" content="https://congyh.github.io/2016/12/08/mongo-index2/index.html">
 <meta property="og:site_name" content="congyh's blog">
-<meta property="og:description" content="不积跬步无以至千里:)">
+<meta property="og:description" content="固定集合MongoDB中默认的集合是动态创建的, 可以自动增长以容纳更多的数据, 而固定集合类似于循环队列, 当集合满时会自动将最老的文档删除. 固定集合的数据被写入磁盘上的固定空间, 所以写入速度非常快.
+固定集合的创建下述指令创建一个10w字节的固定集合
+1&amp;gt; db.createCollection(&quot;collection_name&quot;, &amp;#123;&quot;capped&quot;: true, &quot;si">
+<meta property="og:updated_time" content="2016-12-08T06:41:17.210Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="congyh's blog">
-<meta name="twitter:description" content="不积跬步无以至千里:)">
+<meta name="twitter:title" content="MongoDB索引--高级篇">
+<meta name="twitter:description" content="固定集合MongoDB中默认的集合是动态创建的, 可以自动增长以容纳更多的数据, 而固定集合类似于循环队列, 当集合满时会自动将最老的文档删除. 固定集合的数据被写入磁盘上的固定空间, 所以写入速度非常快.
+固定集合的创建下述指令创建一个10w字节的固定集合
+1&amp;gt; db.createCollection(&quot;collection_name&quot;, &amp;#123;&quot;capped&quot;: true, &quot;si">
 
 
 
@@ -122,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://congyh.github.io/categories/MongoDB/"/>
+  <link rel="canonical" href="https://congyh.github.io/2016/12/08/mongo-index2/"/>
 
 
 
 
 
-  <title> 分类: MongoDB | congyh's blog </title>
+  <title> MongoDB索引--高级篇 | congyh's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +156,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -272,110 +279,257 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        MongoDB
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/08/mongo-basic/" itemprop="url">
-              
-                <span itemprop="name">MongoDB基础知识</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T14:41:57+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/08/mongo-index/" itemprop="url">
-              
-                <span itemprop="name">MongoDB索引-初级篇</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T14:16:50+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/08/mongo-index2/" itemprop="url">
-              
-                <span itemprop="name">MongoDB索引--高级篇</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-08T14:13:07+08:00"
-              content="2016-12-08" >
-          12-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/08/mongo-index2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="congyh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="congyh's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="congyh's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MongoDB索引--高级篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T14:13:07+08:00">
+                2016-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MongoDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongoDB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/08/mongo-index2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/mongo-index2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/08/mongo-index2/" class="leancloud_visitors" data-flag-title="MongoDB索引--高级篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="固定集合"><a href="#固定集合" class="headerlink" title="固定集合"></a>固定集合</h2><p>MongoDB中默认的集合是动态创建的, 可以自动增长以容纳更多的数据, 而固定集合类似于循环队列, 当集合满时会自动将最老的文档删除. 固定集合的数据被写入磁盘上的固定空间, 所以<strong>写入速度非常快</strong>.</p>
+<h3 id="固定集合的创建"><a href="#固定集合的创建" class="headerlink" title="固定集合的创建"></a>固定集合的创建</h3><p>下述指令创建一个10w字节的固定集合</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.createCollection(<span class="string">"collection_name"</span>, &#123;<span class="string">"capped"</span>: <span class="literal">true</span>, <span class="string">"size"</span>: <span class="number">100000</span>&#125;)</div></pre></td></tr></table></figure>
+<h2 id="TTL索引"><a href="#TTL索引" class="headerlink" title="TTL索引"></a>TTL索引</h2><p>对于固定集合来讲, 如果需要超时自动移除文档, 那么可以使用TTL索引</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.foo.ensureIndex(&#123;<span class="string">"lastUpdated"</span>: <span class="number">1</span>&#125;, &#123;<span class="string">"expireAfterSecs"</span>: <span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>&#125;)</div></pre></td></tr></table></figure>
+<p>以上代码设置了超时时间为1天.</p>
+<h2 id="地理空间索引"><a href="#地理空间索引" class="headerlink" title="地理空间索引"></a>地理空间索引</h2><p>MongoDB支持几种类型的地理空间索引. 其中最常用的是<code>2dsphere</code>索引(用于地球表面类型的地图)和2d索引(用于平面地图和时间连续的数据).</p>
+<h3 id="2d索引"><a href="#2d索引" class="headerlink" title="2d索引"></a>2d索引</h3><p>对于非球面的地图(游戏地图, 时间连续的数据等), 可以使用2d索引代替<code>2dsphere</code>.</p>
+<p>一个符合2d索引的文档</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"Water Temple"</span>,</div><div class="line">  <span class="string">"title"</span>: [<span class="number">32</span>, <span class="number">22</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>查询<code>[20, 21]</code>点附近的对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.hyrule.find(&#123;<span class="string">"title"</span>: &#123;<span class="string">"$near"</span>: [<span class="number">20</span>, <span class="number">21</span>]&#125;&#125;)</div></pre></td></tr></table></figure>
+<p>以<code>[12,25]</code>为圆心, 5为半径, 查询出某个圆形范围内的点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.hyrule.find(&#123;<span class="string">"title"</span>: &#123;<span class="string">"$within"</span>: &#123;<span class="string">"$center"</span>: [[<span class="number">12</span>, <span class="number">25</span>], <span class="number">5</span>]&#125;&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用GridFS存储文件"><a href="#使用GridFS存储文件" class="headerlink" title="使用GridFS存储文件"></a>使用GridFS存储文件</h2><p>GridFS是MongoDB的一种存储机制, 通常用来<strong>存储不经常改变但是经常需要连续访问的大型二进制文件</strong>.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.jpg" alt="congyh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
+          
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+          
+            <a href="/tags/索引/" rel="tag"># 索引</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/06/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/08/mongo-index/" rel="prev" title="MongoDB索引-初级篇">
+                MongoDB索引-初级篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/08/mongo-index2/"
+     data-title="MongoDB索引--高级篇"
+     data-content=""
+     data-url="https://congyh.github.io/2016/12/08/mongo-index2/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <br />
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/08/mongo-index2/"
+           data-title="MongoDB索引--高级篇" data-url="https://congyh.github.io/2016/12/08/mongo-index2/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -395,8 +549,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -467,6 +630,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#固定集合"><span class="nav-number">1.</span> <span class="nav-text">固定集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#固定集合的创建"><span class="nav-number">1.1.</span> <span class="nav-text">固定集合的创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TTL索引"><span class="nav-number">2.</span> <span class="nav-text">TTL索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地理空间索引"><span class="nav-number">3.</span> <span class="nav-text">地理空间索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2d索引"><span class="nav-number">3.1.</span> <span class="nav-text">2d索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用GridFS存储文件"><span class="nav-number">4.</span> <span class="nav-text">使用GridFS存储文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -588,6 +767,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -761,26 +944,6 @@
 
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

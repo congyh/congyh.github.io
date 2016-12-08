@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://congyh.github.io/2016/12/08/mongo-basic/</loc>
+    
+    <lastmod>2016-12-08T06:41:57.794Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://congyh.github.io/2016/12/08/mongo-index2/</loc>
+    
+    <lastmod>2016-12-08T06:41:17.210Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://congyh.github.io/2016/12/08/mongo-index/</loc>
     
-    <lastmod>2016-12-08T06:16:50.379Z</lastmod>
+    <lastmod>2016-12-08T06:22:07.071Z</lastmod>
     
   </url>
   
