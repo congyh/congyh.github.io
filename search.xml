@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2016%2F12%2F08%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[(未完成)MongoDB知识点汇总]]></title>
+      <url>%2F2016%2F12%2F08%2Finterview-mongo%2F</url>
+      <content type="text"><![CDATA[MongoDB适用场景 日志 每个应用环境都有不同的日志信息, 文档型数据库没有固定的模式, 很适合用来存储日志. (TODO 待补充) MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 因为一个对象只需要串行化成一个JSON就可以传递给MongoDB了, 不需要进行属性映射或者类型映射. 受限集合与TTL索引受限集合在达到存储上限的时候, 旧文档会自动清除. 还可以通过tail一个受限集合, 来获取最新的数据. 如果想让数据过期, 可以通过创建TTL索引, 来显式指定一个数据的过期时间. 地理空间查询MongoDB支持2d索引, 可以方便的保存geoJSON或者x和y坐标到文档, 通过$near或者$within操作来进行附近或者区域数据. 事务MongoDB不支持事务(TODO 待补充) 如何理解MongoDB集群的高可用性详见:MongoDB高可用性]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[MongoDB复制]]></title>
+      <url>%2F2016%2F12%2F08%2Fmongo-high-availability%2F</url>
+      <content type="text"><![CDATA[几篇不错的文章: 搭建高可用mongodb集群（四）—— 分片高可用的MongoDB集群]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[(未完成)MongoDB聚合操作]]></title>
+      <url>%2F2016%2F12%2F08%2Fmongo-aggregate%2F</url>
+      <content type="text"><![CDATA[前面都是查询操作, 本文设计的是MongoDB的数据分析与利用. 内容主要包括: 聚合框架; MapReduce; 简单的聚合命令: count, distinct和group. 管道操作符\$match\$match用于对文档集合进行筛选, 通常放置在管道的靠前的位置 例如: 下面指定了只有state字段为OR的文档符合条件: 1&#123;"$match": &#123;"state": "OR"&#125;&#125; \$project投射操作, 用于提取文档中的指定字段, 例如: 1&gt; db.articles.aggregate(&#123;"$project": &#123;"author": 1&#125;&#125;) 需要的字段需要显式指定为1. 也可以在投影的同时重命名字段: 1&gt; db.articles.aggregate(&#123;"$project": &#123;"author": "$_id", "_id": 0&#125;&#125;) 上述操作将_id字段赋值给了author字段, 然后去除了_id字段, 相当于最后author代替了_id字段. 管道的使用原则将$project, $group或者$unwind操作安排在管道的开始阶段. MapReduce]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[MongoDB基础知识]]></title>
       <url>%2F2016%2F12%2F08%2Fmongo-basic%2F</url>
       <content type="text"><![CDATA[文档文档就是键值对的一个有序集, 相当于传统关系型数据库的一行. 比如map, hash或者dict(在JavaScript里表示为对象). 其中键是字符串类型的, 值可以是任意类型的. 文档中的键值对是有序的. 集合集合就是一组文档, 相当于一张表. 虽然集合里面可以放置任何类型的文档, 但是还是建议分开存储(后面解释). 集合可以拥有子集合, 使用”.”来界定命名空间. 例如: 一个拥有博客功能的应用可能包含两个集合, 分别是blog.posts和blog.authors. 很多mongodb工具都使用了子集合, 因为使用它来组织数据非常高效(后面介绍), 值得推荐. 数据库多个集合组成数据库. 将数据库的名字添加到集合的名字前, 可以得到集合的全限定名. 例如cms.blog.post表示cms数据库中的blog.posts集合. MongoDB启动与监控首先创建默认的数据存储目录 1$ mkdir -p /data/db 通过以下命令启动(需要保证mongodb在环境变量中) 1$ mongod 当服务器运行后, 会监听在27017端口. 同时还会启动一个基本的http服务器, 可以通过http://localhost:28017来访问数据库的管理信息. MongoDB shell首先要保证MongoDB实例已启动, 然后通过以下命令进行连接 1$ mongo MongoDB shell是一个完整的JavaScript解释器, 也就是可以运行任意的JavaScript指令. 它也是一个独立的MongoDB客户端, 在启动时会连到test数据库, 并且将数据库的连接赋值为全局变量db, 可以通过db来访问MongoDB中的数据库. 如果需要切换数据库, 只需要运行如下指令: 12&gt; use foobarswitched to db foobar 连接远程数据库1$ mongo &lt;host-ip/host-name&gt;:&lt;port&gt;/&lt;dbname&gt; 不连接数据库进行启动1$ mongo --nodb 如果后面需要重新连接到数据库的话, 使用如下指令: 12&gt; conn = new Mongo("some-host:port")&gt; db = conn.getDB("dbname")]]></content>
@@ -27,13 +55,6 @@
       <title><![CDATA[test]]></title>
       <url>%2F2016%2F12%2F06%2Ftest%2F</url>
       <content type="text"><![CDATA[testtest这里是更多]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>%2F2016%2F12%2F06%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
     </entry>
 
     
