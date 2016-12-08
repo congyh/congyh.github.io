@@ -102,7 +102,7 @@ MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 
 
 MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 因为一个对象只需要串行化成一个JSON就可以传递给MongoDB了, 不需要进行属性映射或者类型映射.
 受限集合与TTL索引受限集合在达到存储上限的时候, 旧文档会自动清除. 还可以通过t">
-<meta property="og:updated_time" content="2016-12-08T09:45:08.390Z">
+<meta property="og:updated_time" content="2016-12-08T09:55:53.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(未完成)MongoDB知识点汇总">
 <meta name="twitter:description" content="MongoDB适用场景
@@ -415,6 +415,9 @@ MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 
 <h3 id="地理空间查询"><a href="#地理空间查询" class="headerlink" title="地理空间查询"></a>地理空间查询</h3><p>MongoDB支持2d索引, 可以方便的保存geoJSON或者x和y坐标到文档, 通过<code>$near</code>或者<code>$within</code>操作来进行附近或者区域数据.</p>
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>MongoDB不支持事务(TODO 待补充)</p>
 <h3 id="如何理解MongoDB集群的高可用性"><a href="#如何理解MongoDB集群的高可用性" class="headerlink" title="如何理解MongoDB集群的高可用性"></a>如何理解MongoDB集群的高可用性</h3><p>详见:<a href="/2016/12/08/mongo-high-availability">MongoDB高可用性</a></p>
+<h2 id="MongoDB和mysql的优劣势对比"><a href="#MongoDB和mysql的优劣势对比" class="headerlink" title="MongoDB和mysql的优劣势对比"></a>MongoDB和mysql的优劣势对比</h2><ol>
+<li>MySQL适合于传统的对关联要求高的方面, 而对于MongoDB来说, 关联一般做成内联的.</li>
+</ol>
 
       
     </div>
@@ -467,8 +470,8 @@ MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/08/mongo-high-availability/" rel="next" title="MongoDB复制">
-                <i class="fa fa-chevron-left"></i> MongoDB复制
+              <a href="/2016/12/08/mongo-aggregate/" rel="next" title="(未完成)MongoDB聚合操作">
+                <i class="fa fa-chevron-left"></i> (未完成)MongoDB聚合操作
               </a>
             
           </div>
@@ -574,7 +577,7 @@ MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -644,7 +647,7 @@ MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB适用场景"><span class="nav-number">1.</span> <span class="nav-text">MongoDB适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB的特点"><span class="nav-number">2.</span> <span class="nav-text">MongoDB的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无模式"><span class="nav-number">2.1.</span> <span class="nav-text">无模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#受限集合与TTL索引"><span class="nav-number">2.2.</span> <span class="nav-text">受限集合与TTL索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地理空间查询"><span class="nav-number">2.3.</span> <span class="nav-text">地理空间查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务"><span class="nav-number">2.4.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解MongoDB集群的高可用性"><span class="nav-number">2.5.</span> <span class="nav-text">如何理解MongoDB集群的高可用性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB适用场景"><span class="nav-number">1.</span> <span class="nav-text">MongoDB适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB的特点"><span class="nav-number">2.</span> <span class="nav-text">MongoDB的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无模式"><span class="nav-number">2.1.</span> <span class="nav-text">无模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#受限集合与TTL索引"><span class="nav-number">2.2.</span> <span class="nav-text">受限集合与TTL索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地理空间查询"><span class="nav-number">2.3.</span> <span class="nav-text">地理空间查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务"><span class="nav-number">2.4.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解MongoDB集群的高可用性"><span class="nav-number">2.5.</span> <span class="nav-text">如何理解MongoDB集群的高可用性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB和mysql的优劣势对比"><span class="nav-number">3.</span> <span class="nav-text">MongoDB和mysql的优劣势对比</span></a></li></ol></div>
             
 
           </div>

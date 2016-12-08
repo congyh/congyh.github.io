@@ -12,14 +12,7 @@
     <entry>
       <title><![CDATA[(未完成)MongoDB知识点汇总]]></title>
       <url>%2F2016%2F12%2F08%2Finterview-mongo%2F</url>
-      <content type="text"><![CDATA[MongoDB适用场景 日志 每个应用环境都有不同的日志信息, 文档型数据库没有固定的模式, 很适合用来存储日志. (TODO 待补充) MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 因为一个对象只需要串行化成一个JSON就可以传递给MongoDB了, 不需要进行属性映射或者类型映射. 受限集合与TTL索引受限集合在达到存储上限的时候, 旧文档会自动清除. 还可以通过tail一个受限集合, 来获取最新的数据. 如果想让数据过期, 可以通过创建TTL索引, 来显式指定一个数据的过期时间. 地理空间查询MongoDB支持2d索引, 可以方便的保存geoJSON或者x和y坐标到文档, 通过$near或者$within操作来进行附近或者区域数据. 事务MongoDB不支持事务(TODO 待补充) 如何理解MongoDB集群的高可用性详见:MongoDB高可用性]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[MongoDB复制]]></title>
-      <url>%2F2016%2F12%2F08%2Fmongo-high-availability%2F</url>
-      <content type="text"><![CDATA[几篇不错的文章: 搭建高可用mongodb集群（四）—— 分片高可用的MongoDB集群]]></content>
+      <content type="text"><![CDATA[MongoDB适用场景 日志 每个应用环境都有不同的日志信息, 文档型数据库没有固定的模式, 很适合用来存储日志. (TODO 待补充) MongoDB的特点无模式降低在OOP中使用的阻力, 适用于保存对象. 因为一个对象只需要串行化成一个JSON就可以传递给MongoDB了, 不需要进行属性映射或者类型映射. 受限集合与TTL索引受限集合在达到存储上限的时候, 旧文档会自动清除. 还可以通过tail一个受限集合, 来获取最新的数据. 如果想让数据过期, 可以通过创建TTL索引, 来显式指定一个数据的过期时间. 地理空间查询MongoDB支持2d索引, 可以方便的保存geoJSON或者x和y坐标到文档, 通过$near或者$within操作来进行附近或者区域数据. 事务MongoDB不支持事务(TODO 待补充) 如何理解MongoDB集群的高可用性详见:MongoDB高可用性 MongoDB和mysql的优劣势对比 MySQL适合于传统的对关联要求高的方面, 而对于MongoDB来说, 关联一般做成内联的.]]></content>
     </entry>
 
     
