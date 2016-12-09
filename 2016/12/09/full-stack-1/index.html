@@ -110,7 +110,7 @@ Route和Controller概念分离
 <meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/public/16-12-9/64576206.jpg">
 <meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/public/16-12-9/73781121.jpg">
 <meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/public/16-12-9/79249714.jpg">
-<meta property="og:updated_time" content="2016-12-09T07:40:07.375Z">
+<meta property="og:updated_time" content="2016-12-09T07:43:59.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零构建部署Node.js+Express+Bootstrap Web应用">
 <meta name="twitter:description" content="本文将包括以下内容:
@@ -439,10 +439,10 @@ Route和Controller概念分离
 <a id="more"></a>
 <p>在进行一切操作之前, 需要先安装好Node.js, 对于*nix用户来说, 直接下载解压, 并添加到环境变量中即可完成安装.</p>
 <p>首先从Express着手, Express是构建在Node之上的web应用框架.</p>
-<h2 id="使用package-json定义依赖"><a href="#使用package-json定义依赖" class="headerlink" title="使用package.json定义依赖"></a>使用<code>package.json</code>定义依赖</h2><p>每个Node应用的根目录都有一个文件叫做<code>package.json</code>, 用来记录Node应用的依赖, 例如:</p>
+<h2 id="使用package-json定义依赖"><a href="#使用package-json定义依赖" class="headerlink" title="使用package.json定义依赖"></a>使用package.json定义依赖</h2><p>每个Node应用的根目录都有一个文件叫做<code>package.json</code>, 用来记录Node应用的依赖, 例如:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  ...</div><div class="line">  "depencencies": &#123;</div><div class="line">    "express": "~4.9.0"</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其中”~”表示使用最近的patch版本, 推荐使用.</p>
-<h2 id="使用npm安装Node依赖"><a href="#使用npm安装Node依赖" class="headerlink" title="使用npm安装Node依赖"></a>使用<code>npm</code>安装Node依赖</h2><h3 id="工程范围的依赖"><a href="#工程范围的依赖" class="headerlink" title="工程范围的依赖"></a>工程范围的依赖</h3><p>在和<code>package.json</code>相同的目录层级运行以下指令即可:</p>
+<h2 id="使用npm安装Node依赖"><a href="#使用npm安装Node依赖" class="headerlink" title="使用npm安装Node依赖"></a>使用npm安装Node依赖</h2><h3 id="工程范围的依赖"><a href="#工程范围的依赖" class="headerlink" title="工程范围的依赖"></a>工程范围的依赖</h3><p>在和<code>package.json</code>相同的目录层级运行以下指令即可:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
 <p>这会将所有的依赖(包括间接依赖)下载到<code>node_modules</code>文件夹内. 如果后期你想向工程中追加依赖, 只需要运行以下指令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install &lt;package-name&gt; --save</div></pre></td></tr></table></figure>
