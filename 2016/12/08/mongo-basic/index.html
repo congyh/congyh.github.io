@@ -98,7 +98,7 @@
 文档中的键值对是有序的.
 集合集合就是一组文档, 相当于一张表. 虽然集合里面可以放置任何类型的文档, 但是还是建议分开存储(后面解释).
 集合可以拥有子集合, 使用”.”来界定命名空间. 例如: 一个拥有博客功">
-<meta property="og:updated_time" content="2016-12-08T06:41:57.794Z">
+<meta property="og:updated_time" content="2016-12-09T05:12:08.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB基础知识">
 <meta name="twitter:description" content="文档文档就是键值对的一个有序集, 相当于传统关系型数据库的一行. 比如map, hash或者dict(在JavaScript里表示为对象). 其中键是字符串类型的, 值可以是任意类型的.
@@ -405,16 +405,16 @@
 <p>集合可以拥有子集合, 使用”.”来界定命名空间. 例如: 一个拥有博客功能的应用可能包含两个集合, 分别是<code>blog.posts</code>和<code>blog.authors</code>. 很多mongodb工具都使用了子集合, 因为使用它来组织数据非常高效(后面介绍), 值得推荐.</p>
 <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>多个集合组成数据库. 将数据库的名字添加到集合的名字前, 可以得到集合的全限定名. 例如<code>cms.blog.post</code>表示cms数据库中的<code>blog.posts</code>集合.</p>
 <h2 id="MongoDB启动与监控"><a href="#MongoDB启动与监控" class="headerlink" title="MongoDB启动与监控"></a>MongoDB启动与监控</h2><p>首先创建默认的数据存储目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p /data/db</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p /data/db</div></pre></td></tr></table></figure>
 <p>通过以下命令启动(需要保证mongodb在环境变量中)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod</div></pre></td></tr></table></figure>
 <p>当服务器运行后, 会监听在27017端口. 同时还会启动一个基本的http服务器, 可以通过<code>http://localhost:28017</code>来访问数据库的管理信息.</p>
 <h2 id="MongoDB-shell"><a href="#MongoDB-shell" class="headerlink" title="MongoDB shell"></a>MongoDB shell</h2><p>首先要保证MongoDB实例已启动, 然后通过以下命令进行连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo</div></pre></td></tr></table></figure>
 <p>MongoDB shell是一个完整的JavaScript解释器, 也就是可以运行任意的JavaScript指令. 它也是一个独立的MongoDB客户端, 在启动时会连到test数据库, 并且将数据库的连接赋值为全局变量<code>db</code>, 可以通过<code>db</code>来访问MongoDB中的数据库. 如果需要切换数据库, 只需要运行如下指令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; use foobar</div><div class="line">switched to db foobar</div></pre></td></tr></table></figure>
-<h3 id="连接远程数据库"><a href="#连接远程数据库" class="headerlink" title="连接远程数据库"></a>连接远程数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo &lt;host-ip/host-name&gt;:&lt;port&gt;/&lt;dbname&gt;</div></pre></td></tr></table></figure>
-<h3 id="不连接数据库进行启动"><a href="#不连接数据库进行启动" class="headerlink" title="不连接数据库进行启动"></a>不连接数据库进行启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo --nodb</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; use foobar</div><div class="line">switched to db foobar</div></pre></td></tr></table></figure>
+<h3 id="连接远程数据库"><a href="#连接远程数据库" class="headerlink" title="连接远程数据库"></a>连接远程数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo &lt;host-ip/host-name&gt;:&lt;port&gt;/&lt;dbname&gt;</div></pre></td></tr></table></figure>
+<h3 id="不连接数据库进行启动"><a href="#不连接数据库进行启动" class="headerlink" title="不连接数据库进行启动"></a>不连接数据库进行启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo --nodb</div></pre></td></tr></table></figure>
 <p>如果后面需要重新连接到数据库的话, 使用如下指令:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; conn = <span class="keyword">new</span> Mongo(<span class="string">"some-host:port"</span>)</div><div class="line">&gt; db = conn.getDB(<span class="string">"dbname"</span>)</div></pre></td></tr></table></figure>
 
@@ -476,6 +476,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/09/full-stack-1/" rel="prev" title="从零构建部署Node.js+Express+Bootstrap Web应用">
+                从零构建部署Node.js+Express+Bootstrap Web应用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -570,7 +574,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -578,7 +582,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -587,7 +591,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
