@@ -4,21 +4,6 @@
 
     
   <url>
-    <loc>https://congyh.github.io/2016/12/08/hello-world/</loc>
-    <lastmod>2016-12-08T09:45:58.206Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-12-08T09:45:58.206Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://congyh.github.io/2016/12/08/mongo-index/</loc>
     <lastmod>2016-12-08T09:29:23.462Z</lastmod>
     <data>
@@ -93,26 +78,4 @@
     
     
     
-    
-  <url>
-    <loc>https://congyh.github.io/2016/12/06/test/</loc>
-    <lastmod>2016-12-06T13:43:23.539Z</lastmod>
-    <data>
-        <display>
-        <title>test</title>
-        <pubTime>2016-12-06T13:41:49.000Z</pubTime>
-        
-        <tag>test</tag>
-         
-        <tag>测试文章</tag>
-         
-         
-           
-             
-              <breadCrumb title="test" url="https://congyh.github.io/categories/test/"/>
-          
-        </display>
-    </data>
-    </url>
-
 </urlset>

@@ -3,13 +3,6 @@
   
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>%2F2016%2F12%2F08%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[MongoDB基础知识]]></title>
       <url>%2F2016%2F12%2F08%2Fmongo-basic%2F</url>
       <content type="text"><![CDATA[文档文档就是键值对的一个有序集, 相当于传统关系型数据库的一行. 比如map, hash或者dict(在JavaScript里表示为对象). 其中键是字符串类型的, 值可以是任意类型的. 文档中的键值对是有序的. 集合集合就是一组文档, 相当于一张表. 虽然集合里面可以放置任何类型的文档, 但是还是建议分开存储(后面解释). 集合可以拥有子集合, 使用”.”来界定命名空间. 例如: 一个拥有博客功能的应用可能包含两个集合, 分别是blog.posts和blog.authors. 很多mongodb工具都使用了子集合, 因为使用它来组织数据非常高效(后面介绍), 值得推荐. 数据库多个集合组成数据库. 将数据库的名字添加到集合的名字前, 可以得到集合的全限定名. 例如cms.blog.post表示cms数据库中的blog.posts集合. MongoDB启动与监控首先创建默认的数据存储目录 1$ mkdir -p /data/db 通过以下命令启动(需要保证mongodb在环境变量中) 1$ mongod 当服务器运行后, 会监听在27017端口. 同时还会启动一个基本的http服务器, 可以通过http://localhost:28017来访问数据库的管理信息. MongoDB shell首先要保证MongoDB实例已启动, 然后通过以下命令进行连接 1$ mongo MongoDB shell是一个完整的JavaScript解释器, 也就是可以运行任意的JavaScript指令. 它也是一个独立的MongoDB客户端, 在启动时会连到test数据库, 并且将数据库的连接赋值为全局变量db, 可以通过db来访问MongoDB中的数据库. 如果需要切换数据库, 只需要运行如下指令: 12&gt; use foobarswitched to db foobar 连接远程数据库1$ mongo &lt;host-ip/host-name&gt;:&lt;port&gt;/&lt;dbname&gt; 不连接数据库进行启动1$ mongo --nodb 如果后面需要重新连接到数据库的话, 使用如下指令: 12&gt; conn = new Mongo("some-host:port")&gt; db = conn.getDB("dbname")]]></content>
@@ -27,13 +20,6 @@
       <title><![CDATA[MongoDB索引--高级篇]]></title>
       <url>%2F2016%2F12%2F08%2Fmongo-index2%2F</url>
       <content type="text"><![CDATA[固定集合MongoDB中默认的集合是动态创建的, 可以自动增长以容纳更多的数据, 而固定集合类似于循环队列, 当集合满时会自动将最老的文档删除. 固定集合的数据被写入磁盘上的固定空间, 所以写入速度非常快. 固定集合的创建下述指令创建一个10w字节的固定集合 1&gt; db.createCollection("collection_name", &#123;"capped": true, "size": 100000&#125;) TTL索引对于固定集合来讲, 如果需要超时自动移除文档, 那么可以使用TTL索引 1&gt; db.foo.ensureIndex(&#123;"lastUpdated": 1&#125;, &#123;"expireAfterSecs": 60*60*24&#125;) 以上代码设置了超时时间为1天. 地理空间索引MongoDB支持几种类型的地理空间索引. 其中最常用的是2dsphere索引(用于地球表面类型的地图)和2d索引(用于平面地图和时间连续的数据). 2d索引对于非球面的地图(游戏地图, 时间连续的数据等), 可以使用2d索引代替2dsphere. 一个符合2d索引的文档 1234&#123; "name": "Water Temple", "title": [32, 22]&#125; 查询[20, 21]点附近的对象 1&gt; db.hyrule.find(&#123;"title": &#123;"$near": [20, 21]&#125;&#125;) 以[12,25]为圆心, 5为半径, 查询出某个圆形范围内的点 1&gt; db.hyrule.find(&#123;"title": &#123;"$within": &#123;"$center": [[12, 25], 5]&#125;&#125;&#125;) 使用GridFS存储文件GridFS是MongoDB的一种存储机制, 通常用来存储不经常改变但是经常需要连续访问的大型二进制文件.]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[test]]></title>
-      <url>%2F2016%2F12%2F06%2Ftest%2F</url>
-      <content type="text"><![CDATA[testtest这里是更多]]></content>
     </entry>
 
     
