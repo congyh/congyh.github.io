@@ -185,11 +185,11 @@ th {
 }
 body {
   position: relative;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 18px;
+  font-family: SimHei, Verdana, sans-serif;
+  font-size: 16px;
   line-height: 2;
   color: #555;
-  background: #fff;
+  background: #e0fccf;
 }
 @media (max-width: 767px) {
   body {
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: KaiTi, "Microsoft YaHei", Georgia, sans;
 }
 h2,
 h3,
@@ -226,51 +226,51 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 22px;
+  font-size: 26px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 18px;
+    font-size: 22px;
   }
 }
 h2 {
-  font-size: 20px;
+  font-size: 24px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 h3 {
-  font-size: 18px;
+  font-size: 22px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 h4 {
-  font-size: 16px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 h5 {
-  font-size: 14px;
+  font-size: 18px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 h6 {
-  font-size: 12px;
+  font-size: 16px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 p {
@@ -496,7 +496,7 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 0;
-  font-size: 15px;
+  font-size: 13px;
   color: #c5c8c6;
   background: #1d1f21;
   line-height: 1.6;
@@ -511,7 +511,7 @@ code {
   color: #4d4d4c;
   background: #d4d1c8;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 13px;
 }
 pre code {
   padding: 0;
@@ -978,7 +978,7 @@ pre .javascript .function {
   bottom: 40px;
 }
 .header {
-  background: #fff;
+  background: #d1fab8;
 }
 .header-inner {
   position: relative;
@@ -1126,7 +1126,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: 10px auto 15px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1796,7 +1796,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c778b5;
+  background: #8cb382;
 }
 .links-of-blogroll {
   font-size: 13px;
