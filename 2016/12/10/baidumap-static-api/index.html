@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="congyh,java,linux,scala,spark,storm,hadoop,python" />
+  <meta name="keywords" content="百度地图API," />
 
 
 
@@ -86,16 +86,62 @@
 
 
 
-<meta name="description" content="最近访客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="congyh's blog">
-<meta property="og:url" content="https://congyh.github.io/guestbook/index.html">
+<meta name="description" content="本文的目的是根据经纬度获取一张指定大小的静态地图, 用于内嵌在网页中.
+
+步骤1: 申请百度开发者账号
+
+这部没什么好讲的, 和申请百度账号相仿
+
+步骤2: 申请一个密钥
+
+点击API控制台-&amp;gt;开发-&amp;gt;静态图API
+
+点击获取密钥, 勾选全部权限, 然后设置访问网址为0.0.0.0/0.
+点击API控制台, 这里可以看见先前生成的密钥
+
+
+步骤3: 在应用中嵌入图片, url指定为符合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度地图静态图API使用指南">
+<meta property="og:url" content="https://congyh.github.io/2016/12/10/baidumap-static-api/index.html">
 <meta property="og:site_name" content="congyh's blog">
-<meta property="og:description" content="最近访客">
-<meta property="og:updated_time" content="2016-12-07T08:34:25.945Z">
+<meta property="og:description" content="本文的目的是根据经纬度获取一张指定大小的静态地图, 用于内嵌在网页中.
+
+步骤1: 申请百度开发者账号
+
+这部没什么好讲的, 和申请百度账号相仿
+
+步骤2: 申请一个密钥
+
+点击API控制台-&amp;gt;开发-&amp;gt;静态图API
+
+点击获取密钥, 勾选全部权限, 然后设置访问网址为0.0.0.0/0.
+点击API控制台, 这里可以看见先前生成的密钥
+
+
+步骤3: 在应用中嵌入图片, url指定为符合">
+<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-10/57596357-file_1481382723758_3961.png">
+<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-10/90398887-file_1481382976290_1def.png">
+<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-10/60860268-file_1481383464963_17e3b.png">
+<meta property="og:updated_time" content="2016-12-10T15:27:08.347Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="congyh's blog">
-<meta name="twitter:description" content="最近访客">
+<meta name="twitter:title" content="百度地图静态图API使用指南">
+<meta name="twitter:description" content="本文的目的是根据经纬度获取一张指定大小的静态地图, 用于内嵌在网页中.
+
+步骤1: 申请百度开发者账号
+
+这部没什么好讲的, 和申请百度账号相仿
+
+步骤2: 申请一个密钥
+
+点击API控制台-&amp;gt;开发-&amp;gt;静态图API
+
+点击获取密钥, 勾选全部权限, 然后设置访问网址为0.0.0.0/0.
+点击API控制台, 这里可以看见先前生成的密钥
+
+
+步骤3: 在应用中嵌入图片, url指定为符合">
+<meta name="twitter:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-10/57596357-file_1481382723758_3961.png">
 
 
 
@@ -123,19 +169,13 @@
 
 
 
-  <link rel="canonical" href="https://congyh.github.io/guestbook/"/>
+  <link rel="canonical" href="https://congyh.github.io/2016/12/10/baidumap-static-api/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-     | congyh's blog
-  
-</title>
+  <title> 百度地图静态图API使用指南 | congyh's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +196,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,34 +320,255 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h2 class="post-title" itemprop="name headline"></h2>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/10/baidumap-static-api/">
 
-</header>
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="congyh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="congyh's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="congyh's blog" src="">
+    </span>
+  </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                百度地图静态图API使用指南
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T23:27:08+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/10/baidumap-static-api/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/baidumap-static-api/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/10/baidumap-static-api/" class="leancloud_visitors" data-flag-title="百度地图静态图API使用指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-      <blockquote>
-<p>最近访客</p>
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文的目的是根据经纬度获取一张指定大小的静态地图, 用于内嵌在网页中.</p>
+<blockquote>
+<p><strong>步骤1: 申请百度开发者账号</strong></p>
 </blockquote>
-<div class="ds-recent-visitors" data-num-items="28" data-avatar-size="42" id="ds-recent-visitors"></div>
+<p>这部没什么好讲的, 和申请百度账号相仿</p>
+<blockquote>
+<p><strong>步骤2: 申请一个密钥</strong></p>
+</blockquote>
+<p>点击<code>API控制台</code>-&gt;<code>开发</code>-&gt;<code>静态图API</code></p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-10/57596357-file_1481382723758_3961.png" alt="staticmap-api"></p>
+<p>点击<code>获取密钥</code>, 勾选全部权限, 然后设置访问网址为<code>0.0.0.0/0</code>.</p>
+<p>点击<code>API控制台</code>, 这里可以看见先前生成的密钥</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-10/90398887-file_1481382976290_1def.png" alt="baidumap-ak"></p>
+<blockquote>
+<p><strong>步骤3: 在应用中嵌入图片, url指定为符合静态图API的网址</strong></p>
+</blockquote>
+<p>这里举一个示例网址</p>
+<p><code>http://api.map.baidu.com/staticimage/v2?ak=这里是你自己的ak&amp;mcode=666666&amp;center=116.403874,39.914888&amp;width=400&amp;height=350&amp;zoom=11&amp;markers=116.403874,39.914888</code></p>
+<p>嵌在程序中会达到以下效果</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-10/60860268-file_1481383464963_17e3b.png" alt="baidumap-staticmap"></p>
+<p>其中</p>
+<ul>
+<li><code>ak</code>是刚才的密钥</li>
+<li><code>center</code>是经纬度</li>
+<li><code>markers</code>是地图标注的经纬度</li>
+</ul>
 
-    
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.jpg" alt="congyh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/百度地图API/" rel="tag"># 百度地图API</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/10/full-stack3/" rel="next" title="Mongoose+Mongo+Express">
+                <i class="fa fa-chevron-left"></i> Mongoose+Mongo+Express
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/10/baidumap-static-api/"
+     data-title="百度地图静态图API使用指南"
+     data-content=""
+     data-url="https://congyh.github.io/2016/12/10/baidumap-static-api/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
   </div>
 
 
           </div>
           
 
+  <br />
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="guestbook/index.html"
-           data-title="" data-url="https://congyh.github.io/guestbook/index.html">
+      <div class="ds-thread" data-thread-key="2016/12/10/baidumap-static-api/"
+           data-title="百度地图静态图API使用指南" data-url="https://congyh.github.io/2016/12/10/baidumap-static-api/">
       </div>
     
   </div>
@@ -524,6 +785,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

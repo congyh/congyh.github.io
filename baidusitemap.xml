@@ -3,6 +3,71 @@
 
 
     
+  <url>
+    <loc>https://congyh.github.io/2016/12/10/baidumap-static-api/</loc>
+    <lastmod>2016-12-10T15:27:08.347Z</lastmod>
+    <data>
+        <display>
+        <title>百度地图静态图API使用指南</title>
+        <pubTime>2016-12-10T15:27:08.000Z</pubTime>
+        
+        <tag>百度地图API</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="https://congyh.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://congyh.github.io/2016/12/10/full-stack3/</loc>
+    <lastmod>2016-12-10T12:12:03.864Z</lastmod>
+    <data>
+        <display>
+        <title>Mongoose+Mongo+Express</title>
+        <pubTime>2016-12-10T12:12:03.000Z</pubTime>
+        
+        <tag>MongoDB</tag>
+         
+        <tag>Mongoose</tag>
+         
+        <tag>Express</tag>
+         
+         
+           
+             
+              <breadCrumb title="MongoDB" url="https://congyh.github.io/categories/MongoDB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://congyh.github.io/2016/12/10/full-stack2/</loc>
+    <lastmod>2016-12-10T07:00:04.750Z</lastmod>
+    <data>
+        <display>
+        <title>Jade模板中变量的使用</title>
+        <pubTime>2016-12-10T05:33:44.000Z</pubTime>
+        
+        <tag>jade</tag>
+         
+         
+           
+             
+              <breadCrumb title="Jade" url="https://congyh.github.io/categories/Jade/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
     
   <url>
     <loc>https://congyh.github.io/2016/12/09/full-stack-1/</loc>
@@ -12,9 +77,9 @@
         <title>从零构建部署Node.js+Express+Bootstrap Web应用</title>
         <pubTime>2016-12-09T07:40:07.000Z</pubTime>
         
-        <tag>Node.js</tag>
-         
         <tag>Express</tag>
+         
+        <tag>Node.js</tag>
          
         <tag>Bootstrap</tag>
          
@@ -32,7 +97,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://congyh.github.io/2016/12/08/mongo-basic/</loc>

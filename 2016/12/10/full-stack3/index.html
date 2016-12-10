@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MongoDB,NoSQL,索引," />
+  <meta name="keywords" content="MongoDB,Mongoose,Express," />
 
 
 
@@ -86,25 +86,34 @@
 
 
 
-<meta name="description" content="为什么要使用索引下面以一个例子来说明: 假设我们现在有一个100w条的文档数据, 每个文档数据都包含一个username字段, 其值从user1到user1000000, 假定我们希望通过username进行查询.
-1&amp;gt; db.user.find(&amp;#123;username: &quot;user101&quot;&amp;#125;)
-我们可以在查询的同时开启操作的监控:
-12345678&amp;gt; db.user.">
+<meta name="description" content="Mongoose是在Express应用与MongoDB之间, 负责两者的连接与数据交换. 使用Mongoose我们可以方便的定义数据结构.
+Mongoose的地位如下图所示
+
+添加Mongoose到应用中Mongoose是一个npm模块, 可以像其他模块一样添加到程序中, 并写入依赖
+1$ npm install --save mongoose
+配置Mongoose到应用范围内在Express应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB索引-初级篇">
-<meta property="og:url" content="https://congyh.github.io/2016/12/08/mongo-index/index.html">
+<meta property="og:title" content="Mongoose+Mongo+Express">
+<meta property="og:url" content="https://congyh.github.io/2016/12/10/full-stack3/index.html">
 <meta property="og:site_name" content="congyh's blog">
-<meta property="og:description" content="为什么要使用索引下面以一个例子来说明: 假设我们现在有一个100w条的文档数据, 每个文档数据都包含一个username字段, 其值从user1到user1000000, 假定我们希望通过username进行查询.
-1&amp;gt; db.user.find(&amp;#123;username: &quot;user101&quot;&amp;#125;)
-我们可以在查询的同时开启操作的监控:
-12345678&amp;gt; db.user.">
-<meta property="og:updated_time" content="2016-12-08T09:29:23.462Z">
+<meta property="og:description" content="Mongoose是在Express应用与MongoDB之间, 负责两者的连接与数据交换. 使用Mongoose我们可以方便的定义数据结构.
+Mongoose的地位如下图所示
+
+添加Mongoose到应用中Mongoose是一个npm模块, 可以像其他模块一样添加到程序中, 并写入依赖
+1$ npm install --save mongoose
+配置Mongoose到应用范围内在Express应用">
+<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/36603593.jpg">
+<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/44969620.jpg">
+<meta property="og:updated_time" content="2016-12-10T12:12:03.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MongoDB索引-初级篇">
-<meta name="twitter:description" content="为什么要使用索引下面以一个例子来说明: 假设我们现在有一个100w条的文档数据, 每个文档数据都包含一个username字段, 其值从user1到user1000000, 假定我们希望通过username进行查询.
-1&amp;gt; db.user.find(&amp;#123;username: &quot;user101&quot;&amp;#125;)
-我们可以在查询的同时开启操作的监控:
-12345678&amp;gt; db.user.">
+<meta name="twitter:title" content="Mongoose+Mongo+Express">
+<meta name="twitter:description" content="Mongoose是在Express应用与MongoDB之间, 负责两者的连接与数据交换. 使用Mongoose我们可以方便的定义数据结构.
+Mongoose的地位如下图所示
+
+添加Mongoose到应用中Mongoose是一个npm模块, 可以像其他模块一样添加到程序中, 并写入依赖
+1$ npm install --save mongoose
+配置Mongoose到应用范围内在Express应用">
+<meta name="twitter:image" content="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/36603593.jpg">
 
 
 
@@ -132,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://congyh.github.io/2016/12/08/mongo-index/"/>
+  <link rel="canonical" href="https://congyh.github.io/2016/12/10/full-stack3/"/>
 
 
 
 
 
-  <title> MongoDB索引-初级篇 | congyh's blog </title>
+  <title> Mongoose+Mongo+Express | congyh's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -292,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/08/mongo-index/">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/10/full-stack3/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="congyh">
@@ -316,7 +325,7 @@
             
             
               
-                MongoDB索引-初级篇
+                Mongoose+Mongo+Express
               
             
           </h1>
@@ -329,8 +338,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T14:16:50+08:00">
-                2016-12-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T20:12:03+08:00">
+                2016-12-10
               </time>
             
 
@@ -363,8 +372,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/08/mongo-index/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/mongo-index/" itemprop="commentCount"></span>
+                <a href="/2016/12/10/full-stack3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/full-stack3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,7 +383,7 @@
 
           
           
-             <span id="/2016/12/08/mongo-index/" class="leancloud_visitors" data-flag-title="MongoDB索引-初级篇">
+             <span id="/2016/12/10/full-stack3/" class="leancloud_visitors" data-flag-title="Mongoose+Mongo+Express">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -399,46 +408,45 @@
       
 
       
-        <h2 id="为什么要使用索引"><a href="#为什么要使用索引" class="headerlink" title="为什么要使用索引"></a>为什么要使用索引</h2><p>下面以一个例子来说明: 假设我们现在有一个100w条的文档数据, 每个文档数据都包含一个<code>username</code>字段, 其值从<code>user1</code>到<code>user1000000</code>, 假定我们希望通过<code>username</code>进行查询.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="attr">username</span>: <span class="string">"user101"</span>&#125;)</div></pre></td></tr></table></figure>
-<p>我们可以在查询的同时开启操作的监控:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="attr">username</span>: <span class="string">"user101"</span>&#125;).explain()</div><div class="line">&#123;</div><div class="line">  ...</div><div class="line">  <span class="string">"nscanned"</span>: <span class="number">1000000</span>,</div><div class="line">  <span class="string">"nscannedObjects"</span>: <span class="number">1000000</span>,</div><div class="line">  <span class="string">"millis"</span>: <span class="number">721</span>,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们可以看到集合中的所有的文档都会被扫描, 因为<strong>无法确定集合中的<code>username</code>字段是唯一的</strong>.</p>
-<p>如果不使用索引的话, 我们可以通过限制查询结果数量来强制mongo找到符合条件的结果即返回.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="attr">username</span>: <span class="string">"user101"</span>&#125;).explain()</div><div class="line">&#123;</div><div class="line">  ...</div><div class="line">  <span class="string">"nscanned"</span>: <span class="number">102</span>,</div><div class="line">  <span class="string">"nscannedObjects"</span>: <span class="number">102</span>,</div><div class="line">  <span class="string">"millis"</span>: <span class="number">2</span>,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>虽然上面的查询扫描数量减少了, 但是如果要查找的是user999999就还是需要整体扫描一遍.</p>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p>如下是按照<code>username</code>字段正序(指定为1)创建索引.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.ensureIndex(&#123;<span class="string">"username"</span>: <span class="number">1</span>&#125;)</div></pre></td></tr></table></figure>
-<p>由于创建索引比较费时, 可以通过在另一个shell中执行<code>db.currentOp()</code>或者是检查mongod的日志来 查看索引创建进度. 当索引创建完成后, 再次执行最初的查询.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="string">"username"</span>: <span class="string">"user101"</span>&#125;).explain()</div><div class="line">&#123;</div><div class="line">  ...</div><div class="line">  <span class="string">"nscanned"</span>: <span class="number">1</span>,</div><div class="line">  <span class="string">"nscannedObjects"</span>: <span class="number">1</span>,</div><div class="line">  <span class="string">"millis"</span>: <span class="number">3</span>,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用了索引之后查询几乎可以瞬间完成, <strong>但是每次写操作(包括插入, 更新和删除)将会耗费更多时间</strong>. 因为要同时更新文档和索引. 所以<strong>实际使用中, 不应该拥有两个以上的索引</strong>.</p>
-<h2 id="复合索引"><a href="#复合索引" class="headerlink" title="复合索引"></a>复合索引</h2><p>就是在多个字段上创建一个索引, 注意<strong>索引间是有顺序的</strong>, 例如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.ensureIndex(&#123;<span class="string">"age"</span>: <span class="number">1</span>, <span class="string">"username"</span>: <span class="number">1</span>&#125;)</div></pre></td></tr></table></figure>
-<p>实际创建的索引会先按照<code>age</code>字段排序, 然后按照<code>username</code>字段排序. 这个索引主要有以下三种使用方法:</p>
-<h3 id="点查询"><a href="#点查询" class="headerlink" title="点查询"></a>点查询</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="string">"age"</span>: <span class="number">21</span>&#125;).sort(&#123;<span class="string">"username"</span>: <span class="number">-1</span>&#125;)</div></pre></td></tr></table></figure>
-<p>由于之前我们创建了符合索引, 所以首先可以直接定位到<code>age</code>为21的记录, 然后由于这些记录是按照<code>username</code>正序排列好的, 所以可以直接用<code>sort()</code>方法指定逆序输出, <strong>不需要额外的时间开销</strong>.</p>
-<h3 id="多值查询"><a href="#多值查询" class="headerlink" title="多值查询"></a>多值查询</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="string">"age"</span>: &#123;<span class="string">"$gte"</span>: <span class="number">21</span>, $<span class="string">"lte"</span>: <span class="number">30</span>&#125;&#125;).sort(&#123;<span class="string">"username"</span>: <span class="number">1</span>&#125;)</div></pre></td></tr></table></figure>
-<p>由于这个查询跨了多个<code>age</code>值, <strong>虽然在每个<code>age</code>值内<code>username</code>是有序的, 但是整体来看是无序的, 所以需要在内存中先对结果进行排序, 然后才能返回.</strong> 所以说这个查询通常会较为低效.</p>
-<h3 id="隐式索引"><a href="#隐式索引" class="headerlink" title="隐式索引"></a>隐式索引</h3><p>我们现在创建了一个<code>{&quot;age&quot;: 1, &quot;username&quot;: 1}</code>的索引, 实际上我们同时也获得了一个<code>{&quot;age&quot;: 1}</code>索引, 也就是说:</p>
+        <p>Mongoose是在Express应用与MongoDB之间, 负责两者的连接与数据交换. 使用Mongoose我们可以方便的定义数据结构.</p>
+<p>Mongoose的地位如下图所示</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/36603593.jpg" alt="mongoose-in-mean-stack"></p>
+<h3 id="添加Mongoose到应用中"><a href="#添加Mongoose到应用中" class="headerlink" title="添加Mongoose到应用中"></a>添加Mongoose到应用中</h3><p>Mongoose是一个npm模块, 可以像其他模块一样添加到程序中, 并写入依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save mongoose</div></pre></td></tr></table></figure>
+<h3 id="配置Mongoose到应用范围内"><a href="#配置Mongoose到应用范围内" class="headerlink" title="配置Mongoose到应用范围内"></a>配置Mongoose到应用范围内</h3><p>在Express应用范围导入mongoose连接, 应在工程根目录的<code>app.js</code>中进行引入, 这里由于我们使用的是MVC架构, 所以应该将数据库部分的管理归类在models文件夹中. 我们在目录结构如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.js</div><div class="line">app_server</div><div class="line">├── controllers</div><div class="line">├── models</div><div class="line">    └──db.js</div><div class="line">├── routes</div><div class="line">└── views</div><div class="line">    └── _includes</div><div class="line">    index.js</div></pre></td></tr></table></figure>
+<p>我们在db.js中添加如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</div></pre></td></tr></table></figure>
+<p>然后在<code>app.js</code>中新增如下配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'./app_server/models/db'</span>)</div></pre></td></tr></table></figure>
+<p>由于我们不需要从<code>db.js</code>模块暴露方法, 不需要为<code>require</code>操作指定变量.</p>
+<h3 id="使用Mongoose指定连接"><a href="#使用Mongoose指定连接" class="headerlink" title="使用Mongoose指定连接"></a>使用Mongoose指定连接</h3><p>连接格式如下</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/44969620.jpg" alt="mongoose-connection-string"></p>
+<p>如果我们是连接到本地mongo实例, 那么<code>username</code>, <code>password</code>, <code>port</code>字段都是可以省略的.</p>
+<p>继续向<code>db.js</code>模块添加如下语句, 完成到本地mongo实例的连接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbURI = <span class="string">'mongodb://localhost/Loc8r'</span>;</div><div class="line">mongoose.connect(dbURI);</div></pre></td></tr></table></figure>
+<p>注: 关于如何启动本地mongo实例, 请见我的文章:<a href="https://congyh.github.io/2016/12/08/mongo-basic/">MongoDB基础知识</a></p>
+<h3 id="监控mongoose连接事件"><a href="#监控mongoose连接事件" class="headerlink" title="监控mongoose连接事件"></a>监控mongoose连接事件</h3><p>现在我们想监控连接成功, 连接失败, 连接断开三个事件, 只需要向<code>db.js</code>追加如下代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mongoose.connection.on(<span class="string">'connected'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Mongoose connected to '</span> + dbURI);</div><div class="line">&#125;);</div><div class="line">mongoose.connection.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Mongoose connection error: '</span> + err);</div><div class="line">&#125;);</div><div class="line">mongoose.connection.on(<span class="string">'disconnected'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Mongoose disconnected'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="关闭Mongoose连接"><a href="#关闭Mongoose连接" class="headerlink" title="关闭Mongoose连接"></a>关闭Mongoose连接</h3><p>由于node应用停止时, mongo实例的连接池不会自动关闭, 下面我们将编写代码, 在Node应用退出的时候, 自动关闭mongo连接池.</p>
+<p>Node应用退出前, 根据你启动应用的方式不同, 会释放出不同的信号, 如果我们想在任何场景都使Node应用退出时自动关闭连接, 则需要捕获所有的信号类型.</p>
+<p>为此, 我们首先要定义一个通用的关闭连接的函数, 在里面完成<code>mongoose</code>连接的关闭.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 关闭mongoose连接</div><div class="line"> * &lt;p&gt;</div><div class="line"> * 这里定义了一个闭包, 外层的作用是为里层的函数提供'环境', 这里也就是msg参数.</div><div class="line"> * 否则mongoose.connection.close本身是不接收带参数的回调函数的</div><div class="line"> * @param msg 触发关闭的事件类型</div><div class="line"> * @param callback 负责进行Node应用的关闭</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> gracefulShutdown = <span class="function"><span class="keyword">function</span> (<span class="params">msg, callback</span>) </span>&#123;</div><div class="line">    mongoose.connection.close(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Mongoose disconnected through'</span> + msg);</div><div class="line">        callback();</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>如果我们有一个N个键的索引, 那么想到哪关于我们同时获得了这N个键的前缀组成的索引.</p>
+<p><strong>类型1: SIGINT</strong></p>
 </blockquote>
-<h3 id="复合索引创建的准则"><a href="#复合索引创建的准则" class="headerlink" title="复合索引创建的准则"></a>复合索引创建的准则</h3><blockquote>
-<p>用于精确匹配的字段, 放在索引的前面;用于范围匹配的字段放在最后.</p>
-</blockquote>
-<p>假设现在要使用<code>{&quot;age&quot;: 1, &quot;username&quot;: 1}</code>的索引进行查询, 构造以下查询:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find(&#123;<span class="string">"age"</span>: <span class="number">47</span>, <span class="string">"username"</span>: &#123;<span class="string">"$gt"</span>: <span class="string">"user5"</span>, <span class="string">"$lt"</span>: <span class="string">"user8"</span>&#125;&#125;).explain()</div></pre></td></tr></table></figure>
+<p>此种信号产生在使用<code>npm start</code>指令启动的node应用停止前, 现在我们要在应用捕获到这个信号的时候先执行<code>mongoose</code>的关闭逻辑.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'SIGINT'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gracefulShutdown(<span class="string">'app termination'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        process.exit(<span class="number">0</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <blockquote>
-<p>在基数比较高的键上建立索引, 至少要把基数高的键放在复合索引的前面</p>
+<p><strong>类型2: SIGTERM</strong></p>
 </blockquote>
-<p>因为一个字段的基数(也就是取值的可能值)越高, 这个键上的索引就越有用. 举个例子, 比如我们在<code>gender</code>字段上创建索引, 那么只能将搜索空间缩小到50%左右; 而如果我们在<code>name</code>字段上创建索引, 那么结果集就会非常小, 查询时间大大缩短.</p>
-<h2 id="何时不应该使用索引"><a href="#何时不应该使用索引" class="headerlink" title="何时不应该使用索引"></a>何时不应该使用索引</h2><p>通常来说, 当查询返回较小的结果集时, 索引会非常高效. <strong>结果集在原集合中所占比例越大, 索引的速度就越慢</strong>. 因为索引需要进行两次查找, 一次是查找索引条目, 一次是根据索引去查找文档. 一般来说, 当结果集占原集合30%左右时, 就需要考虑是否直接进行全表扫描来代替索引.</p>
-<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><h3 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h3><p>可以在单个字段上或者符合字段上创建唯一索引, 被唯一索引标识的字段在集合中不能重复.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.ensureIndex(&#123;<span class="string">"username"</span>: <span class="number">1</span>&#125;, &#123;<span class="string">"unique"</span>: <span class="literal">true</span>&#125;)</div></pre></td></tr></table></figure>
-<h3 id="稀疏索引"><a href="#稀疏索引" class="headerlink" title="稀疏索引"></a>稀疏索引</h3><p>唯一索引会对该字段上所有的取值进行索引, 也就是说<code>null</code>也会被视为有值, 所以并不适合于在有缺失值的字段上使用, 而稀疏索引会忽略掉缺失值, 只对该字段存在值的部分文档进行索引.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.ensureIndex(&#123;<span class="string">"email"</span>: <span class="number">1</span>&#125;, &#123;<span class="string">"sparse"</span>: <span class="literal">true</span>&#125;)</div></pre></td></tr></table></figure>
-<p>当然, 可以与唯一索引结合使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; db.ensureIndex(&#123;<span class="string">"email"</span>: <span class="number">1</span>&#125;, &#123;<span class="string">"unique"</span>: <span class="literal">true</span>, <span class="string">"sparse"</span>: <span class="literal">true</span>&#125;)</div></pre></td></tr></table></figure>
+<p>此种信号产生在Heroku关闭应用进程前, 同样, 我们要在捕获到这个信号的时候先关闭<code>mongoose</code>连接.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'SIGTERM'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gracefulShutdown(<span class="string">'Heroku app shutdown'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        process.exit(<span class="number">0</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>类型3: SIGUSR2</strong></p>
+</blockquote>
+<p>此种信号产生是用来通知<code>nodemon</code>进程来重启node应用的, 由于<code>nodemon</code>进程本身也依赖这个信号来进行node应用的重启逻辑, 所以我们不应该完全截断, 而是应该在捕获信号, 完成关闭<code>mongoose</code>逻辑之后再手动发出一个同样的信号, 通知<code>nodemon</code>完成应用的重启. <strong>并且仅捕获此信号一次</strong>, 防止第二次手动释放的信号又被应用进程截获.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注意, 这里与上面的程序有两点不同, 一个是只捕获一次信号</span></div><div class="line"><span class="comment">// 另一点是这里用的是kill, 要求立即结束程序, 并要重新释放同样的信号</span></div><div class="line"><span class="comment">// 供nodemon使用</span></div><div class="line">process.once(<span class="string">'SIGUSR2'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gracefulShutdown(<span class="string">'nodemon restart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        process.kill(process.pid, <span class="string">'SIGUSR2'</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -480,9 +488,9 @@
           
             <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
           
-            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
+            <a href="/tags/Mongoose/" rel="tag"># Mongoose</a>
           
-            <a href="/tags/索引/" rel="tag"># 索引</a>
+            <a href="/tags/Express/" rel="tag"># Express</a>
           
         </div>
       
@@ -491,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/08/mongo-index2/" rel="next" title="MongoDB索引--高级篇">
-                <i class="fa fa-chevron-left"></i> MongoDB索引--高级篇
+              <a href="/2016/12/10/full-stack2/" rel="next" title="Jade模板中变量的使用">
+                <i class="fa fa-chevron-left"></i> Jade模板中变量的使用
               </a>
             
           </div>
@@ -501,8 +509,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/08/mongo-basic/" rel="prev" title="MongoDB基础知识">
-                MongoDB基础知识 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/10/baidumap-static-api/" rel="prev" title="百度地图静态图API使用指南">
+                百度地图静态图API使用指南 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -518,10 +526,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/08/mongo-index/"
-     data-title="MongoDB索引-初级篇"
+        <div class="ds-share flat" data-thread-key="2016/12/10/full-stack3/"
+     data-title="Mongoose+Mongo+Express"
      data-content=""
-     data-url="https://congyh.github.io/2016/12/08/mongo-index/">
+     data-url="https://congyh.github.io/2016/12/10/full-stack3/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -552,8 +560,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/08/mongo-index/"
-           data-title="MongoDB索引-初级篇" data-url="https://congyh.github.io/2016/12/08/mongo-index/">
+      <div class="ds-thread" data-thread-key="2016/12/10/full-stack3/"
+           data-title="Mongoose+Mongo+Express" data-url="https://congyh.github.io/2016/12/10/full-stack3/">
       </div>
     
   </div>
@@ -668,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用索引"><span class="nav-number">1.</span> <span class="nav-text">为什么要使用索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建索引"><span class="nav-number">2.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复合索引"><span class="nav-number">3.</span> <span class="nav-text">复合索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点查询"><span class="nav-number">3.1.</span> <span class="nav-text">点查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多值查询"><span class="nav-number">3.2.</span> <span class="nav-text">多值查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式索引"><span class="nav-number">3.3.</span> <span class="nav-text">隐式索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合索引创建的准则"><span class="nav-number">3.4.</span> <span class="nav-text">复合索引创建的准则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时不应该使用索引"><span class="nav-number">4.</span> <span class="nav-text">何时不应该使用索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引类型"><span class="nav-number">5.</span> <span class="nav-text">索引类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一索引"><span class="nav-number">5.1.</span> <span class="nav-text">唯一索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#稀疏索引"><span class="nav-number">5.2.</span> <span class="nav-text">稀疏索引</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Mongoose到应用中"><span class="nav-number">1.</span> <span class="nav-text">添加Mongoose到应用中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Mongoose到应用范围内"><span class="nav-number">2.</span> <span class="nav-text">配置Mongoose到应用范围内</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Mongoose指定连接"><span class="nav-number">3.</span> <span class="nav-text">使用Mongoose指定连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监控mongoose连接事件"><span class="nav-number">4.</span> <span class="nav-text">监控mongoose连接事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭Mongoose连接"><span class="nav-number">5.</span> <span class="nav-text">关闭Mongoose连接</span></a></li></ol></div>
             
 
           </div>

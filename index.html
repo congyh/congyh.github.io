@@ -284,6 +284,554 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/10/baidumap-static-api/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="congyh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="congyh's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="congyh's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/10/baidumap-static-api/" itemprop="url">
+                  百度地图静态图API使用指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T23:27:08+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/10/baidumap-static-api/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/baidumap-static-api/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/10/baidumap-static-api/" class="leancloud_visitors" data-flag-title="百度地图静态图API使用指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文的目的是根据经纬度获取一张指定大小的静态地图, 用于内嵌在网页中.</p>
+<blockquote>
+<p><strong>步骤1: 申请百度开发者账号</strong></p>
+</blockquote>
+<p>这部没什么好讲的, 和申请百度账号相仿</p>
+<blockquote>
+<p><strong>步骤2: 申请一个密钥</strong></p>
+</blockquote>
+<p>点击<code>API控制台</code>-&gt;<code>开发</code>-&gt;<code>静态图API</code></p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-10/57596357-file_1481382723758_3961.png" alt="staticmap-api"></p>
+<p>点击<code>获取密钥</code>, 勾选全部权限, 然后设置访问网址为<code>0.0.0.0/0</code>.</p>
+<p>点击<code>API控制台</code>, 这里可以看见先前生成的密钥</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-10/90398887-file_1481382976290_1def.png" alt="baidumap-ak"></p>
+<blockquote>
+<p><strong>步骤3: 在应用中嵌入图片, url指定为符合静态图API的网址</strong></p>
+</blockquote>
+<p>这里举一个示例网址</p>
+<p><code>http://api.map.baidu.com/staticimage/v2?ak=这里是你自己的ak&amp;mcode=666666&amp;center=116.403874,39.914888&amp;width=400&amp;height=350&amp;zoom=11&amp;markers=116.403874,39.914888</code></p>
+<p>嵌在程序中会达到以下效果</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-10/60860268-file_1481383464963_17e3b.png" alt="baidumap-staticmap"></p>
+<p>其中</p>
+<ul>
+<li><code>ak</code>是刚才的密钥</li>
+<li><code>center</code>是经纬度</li>
+<li><code>markers</code>是地图标注的经纬度</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/10/full-stack3/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="congyh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="congyh's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="congyh's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/10/full-stack3/" itemprop="url">
+                  Mongoose+Mongo+Express
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T20:12:03+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MongoDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongoDB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/10/full-stack3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/full-stack3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/10/full-stack3/" class="leancloud_visitors" data-flag-title="Mongoose+Mongo+Express">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Mongoose是在Express应用与MongoDB之间, 负责两者的连接与数据交换. 使用Mongoose我们可以方便的定义数据结构.</p>
+<p>Mongoose的地位如下图所示</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/36603593.jpg" alt="mongoose-in-mean-stack"></p>
+<h3 id="添加Mongoose到应用中"><a href="#添加Mongoose到应用中" class="headerlink" title="添加Mongoose到应用中"></a>添加Mongoose到应用中</h3><p>Mongoose是一个npm模块, 可以像其他模块一样添加到程序中, 并写入依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save mongoose</div></pre></td></tr></table></figure>
+<h3 id="配置Mongoose到应用范围内"><a href="#配置Mongoose到应用范围内" class="headerlink" title="配置Mongoose到应用范围内"></a>配置Mongoose到应用范围内</h3><p>在Express应用范围导入mongoose连接, 应在工程根目录的<code>app.js</code>中进行引入, 这里由于我们使用的是MVC架构, 所以应该将数据库部分的管理归类在models文件夹中. 我们在目录结构如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.js</div><div class="line">app_server</div><div class="line">├── controllers</div><div class="line">├── models</div><div class="line">    └──db.js</div><div class="line">├── routes</div><div class="line">└── views</div><div class="line">    └── _includes</div><div class="line">    index.js</div></pre></td></tr></table></figure>
+<p>我们在db.js中添加如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</div></pre></td></tr></table></figure>
+<p>然后在<code>app.js</code>中新增如下配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'./app_server/models/db'</span>)</div></pre></td></tr></table></figure>
+<p>由于我们不需要从<code>db.js</code>模块暴露方法, 不需要为<code>require</code>操作指定变量.</p>
+<h3 id="使用Mongoose指定连接"><a href="#使用Mongoose指定连接" class="headerlink" title="使用Mongoose指定连接"></a>使用Mongoose指定连接</h3><p>连接格式如下</p>
+<p><img src="http://ohrpyryjo.bkt.clouddn.com/public/16-12-10/44969620.jpg" alt="mongoose-connection-string"></p>
+<p>如果我们是连接到本地mongo实例, 那么<code>username</code>, <code>password</code>, <code>port</code>字段都是可以省略的.</p>
+<p>继续向<code>db.js</code>模块添加如下语句, 完成到本地mongo实例的连接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbURI = <span class="string">'mongodb://localhost/Loc8r'</span>;</div><div class="line">mongoose.connect(dbURI);</div></pre></td></tr></table></figure>
+<p>注: 关于如何启动本地mongo实例, 请见我的文章:<a href="https://congyh.github.io/2016/12/08/mongo-basic/">MongoDB基础知识</a></p>
+<h3 id="监控mongoose连接事件"><a href="#监控mongoose连接事件" class="headerlink" title="监控mongoose连接事件"></a>监控mongoose连接事件</h3><p>现在我们想监控连接成功, 连接失败, 连接断开三个事件, 只需要向<code>db.js</code>追加如下代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mongoose.connection.on(<span class="string">'connected'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Mongoose connected to '</span> + dbURI);</div><div class="line">&#125;);</div><div class="line">mongoose.connection.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Mongoose connection error: '</span> + err);</div><div class="line">&#125;);</div><div class="line">mongoose.connection.on(<span class="string">'disconnected'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Mongoose disconnected'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="关闭Mongoose连接"><a href="#关闭Mongoose连接" class="headerlink" title="关闭Mongoose连接"></a>关闭Mongoose连接</h3><p>由于node应用停止时, mongo实例的连接池不会自动关闭, 下面我们将编写代码, 在Node应用退出的时候, 自动关闭mongo连接池.</p>
+<p>Node应用退出前, 根据你启动应用的方式不同, 会释放出不同的信号, 如果我们想在任何场景都使Node应用退出时自动关闭连接, 则需要捕获所有的信号类型.</p>
+<p>为此, 我们首先要定义一个通用的关闭连接的函数, 在里面完成<code>mongoose</code>连接的关闭.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 关闭mongoose连接</div><div class="line"> * &lt;p&gt;</div><div class="line"> * 这里定义了一个闭包, 外层的作用是为里层的函数提供'环境', 这里也就是msg参数.</div><div class="line"> * 否则mongoose.connection.close本身是不接收带参数的回调函数的</div><div class="line"> * @param msg 触发关闭的事件类型</div><div class="line"> * @param callback 负责进行Node应用的关闭</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> gracefulShutdown = <span class="function"><span class="keyword">function</span> (<span class="params">msg, callback</span>) </span>&#123;</div><div class="line">    mongoose.connection.close(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Mongoose disconnected through'</span> + msg);</div><div class="line">        callback();</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>类型1: SIGINT</strong></p>
+</blockquote>
+<p>此种信号产生在使用<code>npm start</code>指令启动的node应用停止前, 现在我们要在应用捕获到这个信号的时候先执行<code>mongoose</code>的关闭逻辑.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'SIGINT'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gracefulShutdown(<span class="string">'app termination'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        process.exit(<span class="number">0</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>类型2: SIGTERM</strong></p>
+</blockquote>
+<p>此种信号产生在Heroku关闭应用进程前, 同样, 我们要在捕获到这个信号的时候先关闭<code>mongoose</code>连接.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'SIGTERM'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gracefulShutdown(<span class="string">'Heroku app shutdown'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        process.exit(<span class="number">0</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>类型3: SIGUSR2</strong></p>
+</blockquote>
+<p>此种信号产生是用来通知<code>nodemon</code>进程来重启node应用的, 由于<code>nodemon</code>进程本身也依赖这个信号来进行node应用的重启逻辑, 所以我们不应该完全截断, 而是应该在捕获信号, 完成关闭<code>mongoose</code>逻辑之后再手动发出一个同样的信号, 通知<code>nodemon</code>完成应用的重启. <strong>并且仅捕获此信号一次</strong>, 防止第二次手动释放的信号又被应用进程截获.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注意, 这里与上面的程序有两点不同, 一个是只捕获一次信号</span></div><div class="line"><span class="comment">// 另一点是这里用的是kill, 要求立即结束程序, 并要重新释放同样的信号</span></div><div class="line"><span class="comment">// 供nodemon使用</span></div><div class="line">process.once(<span class="string">'SIGUSR2'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gracefulShutdown(<span class="string">'nodemon restart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        process.kill(process.pid, <span class="string">'SIGUSR2'</span>);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/10/full-stack2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="congyh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="congyh's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="congyh's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/10/full-stack2/" itemprop="url">
+                  Jade模板中变量的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T13:33:44+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jade/" itemprop="url" rel="index">
+                    <span itemprop="name">Jade</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/10/full-stack2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/full-stack2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/10/full-stack2/" class="leancloud_visitors" data-flag-title="Jade模板中变量的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><strong>形式1: JavaScript行内代码</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">h1= pageHeader.title</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>形式2: 插值</strong></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">some text #&#123;pageHeader.strapline&#125;</div></pre></td></tr></table></figure>
+<p>注意: 以上两种做法都会将html代码直接转为文本输出(出于安全考虑), 如果想保留原来的html标签输出, 则使用<code>!=</code>和<code>!{}</code>的形式即可</p>
+<blockquote>
+<p><strong>形式3: 使用JavaScript代码段</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; location.rating; i++)</div><div class="line">    &lt;本行为Jade代码&gt;</div></pre></td></tr></table></figure>
+<p>注意:</p>
+<ul>
+<li>整体上来看, 与JavaScript语法相当像, 不过现在不是用大括号标识代码块, 而是用缩进来标志.</li>
+<li><code>if</code>语句不需要用”-“连接</li>
+</ul>
+<blockquote>
+<p><strong>形式4: 使用mixin定义可重用的代码段</strong></p>
+</blockquote>
+<p>无参数的<code>mixin</code>定义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mixin welcome</div><div class="line">    p Welcome</div></pre></td></tr></table></figure>
+<p>调用<code>mixin</code>的语法为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+welcome</div></pre></td></tr></table></figure>
+<p>下面是带参数的<code>mixin</code>定义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mixin outputRating(rating)</div><div class="line">    - <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= rating; i++)</div><div class="line">        &lt;这里是jade代码&gt;</div></pre></td></tr></table></figure>
+<p>调用带参数的<code>mixin</code>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+outputRating(&lt;实参&gt;)</div></pre></td></tr></table></figure>
+<p>如果我们想要在其他文件中使用在本文件中定义的<code>mixin</code>, 通过<code>include</code>关键字加路径实现. 例如, 现在我们的目录层级如下所示:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">├── _includes</div><div class="line">│   └── sharedHTMLfunctions.jade</div><div class="line">└── locations-list.jade</div></pre></td></tr></table></figure>
+<p>我们想通过<code>location-list.jade</code>文件来引用<code>_includes/sharedHTMLfunctions.jade</code>中的mixin, 可以如下使用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">include _includes/sharedHTMLfunctions</div><div class="line">...</div><div class="line">+outputRating(&lt;实参&gt;)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/09/full-stack-1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1013,7 +1561,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1021,7 +1569,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1030,7 +1578,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
