@@ -1,8 +1,14 @@
 ---
 title: Mongoose+Mongo+Express
-tags: [MongoDB,Mongoose,Express]
-categories: [MongoDB]
+tags:
+  - MongoDB
+  - Mongoose
+  - Express
+categories:
+  - MongoDB
+date: 2016-12-10 20:12:03
 ---
+
 
 Mongoose是在Express应用与MongoDB之间, 负责两者的连接与数据交换. 使用Mongoose我们可以方便的定义数据结构.
 
