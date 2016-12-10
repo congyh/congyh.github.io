@@ -165,8 +165,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
-  script(src='/javascript/jquery-3.1.1.min.js')
-  script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascript/jquery-3.1.1.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
 ```
 `layout.jade`除了用于定义html的模板, 还用来进行css和js脚本的连接, 注意: js脚本放在页面最下面有利于提升网页的加载速度. 此外, 第一行设置的`viewport`有利于页面能够在移动设备上良好的缩放.
 

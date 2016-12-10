@@ -4,4 +4,5 @@ tags:
 categories:
 ---
 
-## Express中的route
+## 关于Bootstrap
+Bootstrap使用的是12列网格布局法.
