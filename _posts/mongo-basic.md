@@ -65,3 +65,36 @@ $ mongo --nodb
 > conn = new Mongo("some-host:port")
 > db = conn.getDB("dbname")
 ```
+
+### 列出所有数据库
+```sql
+> show dbs
+Loc8r  0.000GB
+admin  0.000GB
+local  0.000GB
+test   0.005GB
+```
+### 列出数据库中的所有集合(collection)
+```sql
+> show collections
+startup_log
+```
+
+### 查询
+```sql
+> db.startup_log.find()
+```
+
+如果在`find()`中不指定查询参数的话, 默认是查询所有内容, 但是不用担心, MongoDB会分页返回结果给我们.
+
+如果嫌弃结果显示的不美观, 可以指定`pretty()`来进行换行显示
+
+```sql
+> db.startup_log.find().pretty()
+```
+
+### 删除指定collection
+
+```sql
+> db.collectionname.drop()
+```
