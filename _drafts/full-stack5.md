@@ -8,6 +8,7 @@ categories: [MongoDB,Express]
 
 ![REST-in-MEAN](http://ohrpyryjo.bkt.clouddn.com/16-12-11/46599607-file_1481433994795_b81.png)
 
+## 设计REST API的请求处理部分
 ### REST API功能
 通常, 我们希望借助REST API完成以下操作
 - 创建一个新记录
@@ -46,3 +47,43 @@ categories: [MongoDB,Express]
 |读取指定的记录|GET|/locations|locationId|http://example/api/locations/123|
 |更新指定记录|PUT|/locations|locationId|http://example/api/locations/123|
 |删除指定记录|DELETE|/locations|locationId|http://example/api/locations/123|
+
+### 使用REST API操作子文档
+以上介绍都是REST API操作父文档, 如果想操作子文档, 首先需要获取到父文档, 也就是如上表中的http://example/api/locations/123这样的路径, 现在假定每个`location`文档中还内嵌了名为`reviews`的子文档, 那么它所对应的操作如下
+
+|动作|HTTP请求类型|URL路径|路径参数|例子|
+|---|---|---|---|---|
+|创建一个新记录|POST|/locations/locationId/reviews|locationId|http://example/api/locations/123/reviews|
+|读取指定的记录|GET|/locations/locationId/reviews|locationId<br/>reviewId|http://example/api/locations/123/reviews/abc|
+|更新指定记录|PUT|/locations/locationId/reviews|locationId<br/>reviewId|http://example/api/locations/123/reviews/abc|
+|删除指定记录|DELETE|/locations/locationId/reviews|locationId<br/>reviewId|http://example/api/locations/123/reviews/abc|
+
+注意, 子文档的操作并没有一个读取list的操作, 因为这个操作可以通过对父文档操作进行实现.
+
+## 设计REST API响应(Response)和状态码
+REST API的另一部分就是响应的设计, 响应一般来说包含两个部分:
+- 返回数据
+- HTTP状态码
+
+对于返回数据, 通常是JSON或者XML类型的, 这里我们选择JSON类型, 因为它比XML数据更加紧凑, 并且天然适应MEAN技术栈. 对于每个请求, 返回数据都应该有三种类型:
+- 包含正确返回的被请求数据的JSON对象
+- 包含错误信息的JSON对象
+- null响应
+
+### 常用的HTTP状态码
+> HTTP状态码通常是用来和响应一同返回的, 用于表明HTTP请求的执行情况.
+
+常用的HTTP状态码共有10种
+
+|状态码|名称|适用场景|
+|---|---|---|
+|200|OK|`GET`或者`PUT`请求成功|
+|201|Created|`POST`请求成功|
+|204|No content|`DELETE`请求成功|
+|400|Bad request|`GET`, `PUT`或者`POST`请求由于内容不符合标准而失败|
+|401|Unauthorized|身份验证未通过|
+|403|Forbidden|不允许的请求|
+|404|Not found|请求的URL没有资源或者参数错误|
+|405|Method not allowed|指定的URL不允许此种请求类型|
+|409|Conflict|`POST`失败, 试图插入重复数据|
+|500|Internal server error|服务器或数据库故障|
