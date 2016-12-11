@@ -1,5 +1,5 @@
 ---
-title: 使用REST API操作MongoDB
+title: 使用REST API操作MongoDB(一)
 tags: [REST,MongoDB,Express]
 categories: [MongoDB,Express]
 ---
@@ -87,3 +87,22 @@ REST API的另一部分就是响应的设计, 响应一般来说包含两个部�
 |405|Method not allowed|指定的URL不允许此种请求类型|
 |409|Conflict|`POST`失败, 试图插入重复数据|
 |500|Internal server error|服务器或数据库故障|
+
+### 在Express中建立响应API
+使REST API不与应用的其他处理逻辑混杂, 所以这里我们单独对其进行管理.
+
+首先, 在应用的根目录新建一个`app_api`目录, 这个目录将会包含`routes`, `controllers`, `models`(注意并没有`views`)
+
+> #### 创建REST API路由
+
+首先创建根路由, 也就是`index.js`, 并将其加载到`app.js`中,
+
+```javascript
+var index = require('./app_server/routes/index');
+// 以下是新增的路由
+var apiIndex = require('./app_api/routes/index');
+
+app.use('/', index);
+// 以下是新增的路由
+app.use('/api', apiIndex);
+```
