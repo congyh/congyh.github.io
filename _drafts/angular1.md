@@ -1,5 +1,5 @@
 ---
-title: Angular基础
+title: Angular基础(一)
 tags:
 categories:
 ---
@@ -15,3 +15,8 @@ Angular是一个MVW模式的框架, W的意思是"Whatever works for you". 意�
 > 视图的改变会更新模型, 模型的改变也会更新视图, 一切都是发生在浏览器中的
 
 ![two-way-data-binding](http://ohrpyryjo.bkt.clouddn.com/16-12-14/43062226-file_1481688667084_58c0.png)
+
+## Angular Scope
+Angular有一个`rootScope`, 也就是`ng-app`定义的scope, 子scope是由`ng-controller`创建的.
+
+在Angular中, scope是与view, model和controller绑定的, 它们使用的是相同的scope.
