@@ -54,3 +54,28 @@ angular.module('loc8rApp')
 随着我们的输入, 视图也会随之改变.
 
 ![](http://ohrpyryjo.bkt.clouddn.com/16-12-18/93900990-file_1482036378517_f53a.png)
+
+### 使用ng-repeat遍历数组元素
+我们可以如下定义一个控制器:
+
+```javascript
+var myController = function ($scope) {
+    $scope.items = ['one', 'two', 'three'];
+};
+```
+
+然后在html中这样遍历(注意, `ng-repeat`要绑定在需要重复的元素上, 在下例中是`li`元素)
+
+```html
+<body ng-controller="myController">
+    <ul>
+        <li ng-repeat="item in items">{{item}}</li>
+    </ul>
+</body>
+```
+
+在浏览器中查看是如下效果:
+
+![angular-ng-repeat](http://ohrpyryjo.bkt.clouddn.com/16-12-18/32430745-file_1482037618010_4b55.png)
+
+### Angular filter
