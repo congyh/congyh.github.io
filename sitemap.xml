@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://congyh.github.io/2017/01/03/db-migrate1/</loc>
+    
+    <lastmod>2017-01-03T06:40:35.989Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://congyh.github.io/next_config.json</loc>
+    
+    <lastmod>2016-12-12T04:19:18.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://congyh.github.io/custom.css</loc>
+    
+    <lastmod>2016-12-12T04:18:51.824Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://congyh.github.io/2016/12/11/full-stack4/</loc>
     
     <lastmod>2016-12-11T05:13:26.678Z</lastmod>
@@ -33,20 +54,6 @@
     <loc>https://congyh.github.io/2016/12/10/full-stack2/</loc>
     
     <lastmod>2016-12-10T07:00:04.750Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://congyh.github.io/next_config.json</loc>
-    
-    <lastmod>2016-12-10T04:34:15.162Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://congyh.github.io/custom.css</loc>
-    
-    <lastmod>2016-12-10T04:30:03.434Z</lastmod>
     
   </url>
   

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MongoDB,Heroku,Mongolab," />
+  <meta name="keywords" content="MySQL,Oracle,数据库迁移,Sequence,Hibernate,存储过程," />
 
 
 
@@ -86,37 +86,37 @@
 
 
 
-<meta name="description" content="之前我们已经简单的在Heroku上部署了正在开发的web应用, 现在我们的应用要使用MongoDB数据库, 如何在云端部署一个MongoDB连接呢?
-再进一步, 最终我们的目的是生产和开发环境连接不同数据库. 本文将完整叙述整个流程.
-注册MongoLab账号我们这里将使用MongoLab, 首先需要注册账号, 相关文档请见这里
-创建一个新数据库登陆后按照如下操作
+<meta name="description" content="Oracle数据库到MySQL数据库迁移过程中的一大难题就是主键生成策略的替换. 如果之前的程序中使用Oracle的Sequence机制来实现主键的自增的话. MySQL中需要另寻他法进行等价替换.
+替换的时候, 主要有两个地方需要修改:
 
-选择single node,">
+数据库存储过程;
+Java程序的修改
+
+Java程序中的修改这里以Hibernate操作数据库为例进行演示.
+使用Oracle Sequence假如你之前的程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Heroku连接云端MongoDB的方法">
-<meta property="og:url" content="https://congyh.github.io/2016/12/11/full-stack4/index.html">
+<meta property="og:title" content="Oracle到MySQL数据库迁移之--主键生成策略替换">
+<meta property="og:url" content="https://congyh.github.io/2017/01/03/db-migrate1/index.html">
 <meta property="og:site_name" content="congyh's blog">
-<meta property="og:description" content="之前我们已经简单的在Heroku上部署了正在开发的web应用, 现在我们的应用要使用MongoDB数据库, 如何在云端部署一个MongoDB连接呢?
-再进一步, 最终我们的目的是生产和开发环境连接不同数据库. 本文将完整叙述整个流程.
-注册MongoLab账号我们这里将使用MongoLab, 首先需要注册账号, 相关文档请见这里
-创建一个新数据库登陆后按照如下操作
+<meta property="og:description" content="Oracle数据库到MySQL数据库迁移过程中的一大难题就是主键生成策略的替换. 如果之前的程序中使用Oracle的Sequence机制来实现主键的自增的话. MySQL中需要另寻他法进行等价替换.
+替换的时候, 主要有两个地方需要修改:
 
-选择single node,">
-<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-11/30918370-file_1481429270266_10211.png">
-<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-11/91141098-file_1481429517670_ffd3.png">
-<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-11/57873354-file_1481429810720_299e.png">
-<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-11/90480148-file_1481430025597_8845.png">
-<meta property="og:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-11/46376636-file_1481431744964_cf29.png">
-<meta property="og:updated_time" content="2016-12-11T05:13:26.678Z">
+数据库存储过程;
+Java程序的修改
+
+Java程序中的修改这里以Hibernate操作数据库为例进行演示.
+使用Oracle Sequence假如你之前的程">
+<meta property="og:updated_time" content="2017-01-03T06:40:35.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Heroku连接云端MongoDB的方法">
-<meta name="twitter:description" content="之前我们已经简单的在Heroku上部署了正在开发的web应用, 现在我们的应用要使用MongoDB数据库, 如何在云端部署一个MongoDB连接呢?
-再进一步, 最终我们的目的是生产和开发环境连接不同数据库. 本文将完整叙述整个流程.
-注册MongoLab账号我们这里将使用MongoLab, 首先需要注册账号, 相关文档请见这里
-创建一个新数据库登陆后按照如下操作
+<meta name="twitter:title" content="Oracle到MySQL数据库迁移之--主键生成策略替换">
+<meta name="twitter:description" content="Oracle数据库到MySQL数据库迁移过程中的一大难题就是主键生成策略的替换. 如果之前的程序中使用Oracle的Sequence机制来实现主键的自增的话. MySQL中需要另寻他法进行等价替换.
+替换的时候, 主要有两个地方需要修改:
 
-选择single node,">
-<meta name="twitter:image" content="http://ohrpyryjo.bkt.clouddn.com/16-12-11/30918370-file_1481429270266_10211.png">
+数据库存储过程;
+Java程序的修改
+
+Java程序中的修改这里以Hibernate操作数据库为例进行演示.
+使用Oracle Sequence假如你之前的程">
 
 
 
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://congyh.github.io/2016/12/11/full-stack4/"/>
+  <link rel="canonical" href="https://congyh.github.io/2017/01/03/db-migrate1/"/>
 
 
 
 
 
-  <title> Heroku连接云端MongoDB的方法 | congyh's blog </title>
+  <title> Oracle到MySQL数据库迁移之--主键生成策略替换 | congyh's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2016/12/11/full-stack4/">
+  <link itemprop="mainEntityOfPage" href="https://congyh.github.io/2017/01/03/db-migrate1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="congyh">
@@ -328,7 +328,7 @@
             
             
               
-                Heroku连接云端MongoDB的方法
+                Oracle到MySQL数据库迁移之--主键生成策略替换
               
             
           </h1>
@@ -341,8 +341,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-11T13:13:26+08:00">
-                2016-12-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-03T14:40:35+08:00">
+                2017-01-03
               </time>
             
 
@@ -360,8 +360,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MongoDB/" itemprop="url" rel="index">
-                    <span itemprop="name">MongoDB</span>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
                   </a>
                 </span>
 
@@ -371,8 +371,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MongoDB/Heroku/" itemprop="url" rel="index">
-                    <span itemprop="name">Heroku</span>
+                  <a href="/categories/MySQL/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
                   </a>
                 </span>
 
@@ -386,8 +386,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/11/full-stack4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/full-stack4/" itemprop="commentCount"></span>
+                <a href="/2017/01/03/db-migrate1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/03/db-migrate1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,7 +397,7 @@
 
           
           
-             <span id="/2016/12/11/full-stack4/" class="leancloud_visitors" data-flag-title="Heroku连接云端MongoDB的方法">
+             <span id="/2017/01/03/db-migrate1/" class="leancloud_visitors" data-flag-title="Oracle到MySQL数据库迁移之--主键生成策略替换">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,64 +422,31 @@
       
 
       
-        <p>之前我们已经简单的在Heroku上部署了正在开发的web应用, 现在我们的应用要使用MongoDB数据库, 如何在云端部署一个MongoDB连接呢?</p>
-<p>再进一步, 最终我们的目的是生产和开发环境连接不同数据库. 本文将完整叙述整个流程.</p>
-<h3 id="注册MongoLab账号"><a href="#注册MongoLab账号" class="headerlink" title="注册MongoLab账号"></a>注册MongoLab账号</h3><p>我们这里将使用MongoLab, 首先需要注册账号, 相关文档请见<a href="http://docs.mlab.com/" title="MongoLab文档" target="_blank" rel="external">这里</a></p>
-<h3 id="创建一个新数据库"><a href="#创建一个新数据库" class="headerlink" title="创建一个新数据库"></a>创建一个新数据库</h3><p>登陆后按照如下操作</p>
-<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-11/30918370-file_1481429270266_10211.png" alt="mongolab-1"></p>
-<p>选择<code>single node</code>, <code>sandbox</code>, 注意, 只有特定的区域才有<code>single node</code>节点可选, 需要自己手动试一下哪个可行.</p>
-<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-11/91141098-file_1481429517670_ffd3.png" alt="mongolab-single-node"></p>
-<p>创建成功后的效果</p>
-<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-11/57873354-file_1481429810720_299e.png" alt=""></p>
-<p>如果没有创建成功, 多半是数据库名称冲突了, 多试几个就好.</p>
-<p>点击<code>Name</code>进入数据库, 提示要创建一个用户来使用数据库, 那么我们切换到<code>Users</code>标签, 点击<code>add database user</code></p>
-<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-11/90480148-file_1481430025597_8845.png" alt=""></p>
-<p>配置Mongolab数据库连接字符串到heroku的配置文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ heroku config:<span class="built_in">set</span> MONGOLAB_URI=mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds127958.mlab.com:27958/congyh</div><div class="line">Setting MONGOLAB_URI and restarting ⬢ sheltered-everglades-85543... <span class="keyword">done</span>, v10</div><div class="line">...</div></pre></td></tr></table></figure>
-<h3 id="同步本地开发数据库的测试数据到Mongolab"><a href="#同步本地开发数据库的测试数据到Mongolab" class="headerlink" title="同步本地开发数据库的测试数据到Mongolab"></a>同步本地开发数据库的测试数据到Mongolab</h3><blockquote>
-<p><strong>创建一个临时文件夹, 用于本地开发数据库的备份</strong></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p ~/tmp/mongodump</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>备份本地开发数据库</strong></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongodump -h localhost:27017 <span class="_">-d</span> Loc8r -o ~/tmp/mongodump</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>还原数据到云端数据库</strong></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mongorestore -h ds127958.mlab.com:27958 <span class="_">-d</span> congyh -u &lt;username&gt; -p &lt;password&gt; ~/tmp/mongodump/Loc8r</div><div class="line">...</div><div class="line">2016-12-11T12:40:06.685+0800    finished restoring congyh.locations (3 documents)</div><div class="line">2016-12-11T12:40:06.685+0800    <span class="keyword">done</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>检查数据还原情况</strong></p>
-</blockquote>
-<p>首先使用mongo shell连接到远程数据库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ mongo ds127958.mlab.com:27958/congyh -u &lt;username&gt; -p &lt;password&gt;</div><div class="line">MongoDB shell version v3.4.0</div><div class="line">connecting to: mongodb://ds127958.mlab.com:27958/congyh</div><div class="line">MongoDB server version: 3.2.11</div><div class="line">WARNING: shell and server versions <span class="keyword">do</span> not match</div><div class="line">rs-ds127958:PRIMARY&gt;</div></pre></td></tr></table></figure>
-<p>列出数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; show collections</div><div class="line">&gt; db.locations.find()</div></pre></td></tr></table></figure>
-<h3 id="让应用根据环境自动选择连接的数据库"><a href="#让应用根据环境自动选择连接的数据库" class="headerlink" title="让应用根据环境自动选择连接的数据库"></a>让应用根据环境自动选择连接的数据库</h3><p>经过以上操作, 我们获得了一个和本地开发数据库同步的云端数据库, 由于我们的应用同时在本地开发和Heroku部署, 需要让应用根据环境自动连接到正确的数据库.</p>
-<p><img src="http://ohrpyryjo.bkt.clouddn.com/16-12-11/46376636-file_1481431744964_cf29.png" alt="database-in-two-locations"></p>
-<blockquote>
-<p><strong>设置NODE_ENV环境变量</strong></p>
-</blockquote>
-<p>首先需要将heroku上部署的应用切换到<code>production</code>环境(注意: 要在应用根目录下执行指令).</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ heroku config:<span class="built_in">set</span> NODE_ENV=production</div><div class="line">Setting NODE_ENV and restarting ⬢ sheltered-everglades-85543... <span class="keyword">done</span>, v11</div><div class="line">NODE_ENV: production</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>更改应用源码中数据库连接的设置</strong></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbURI = <span class="string">'mongodb://localhost/Loc8r'</span>;</div><div class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'production'</span>) &#123;</div><div class="line">    dbURI = process.env.MONGOLAB_URI;</div><div class="line">&#125;</div><div class="line">mongoose.connect(dbURI);</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>本地测试连接到本地开发数据库和Mongolab数据库</strong></p>
-</blockquote>
-<p>首先测试连接到本地开发数据库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ nodemon</div><div class="line">Mongoose connected to mongodb://localhost/Loc8r</div></pre></td></tr></table></figure>
-<p>然后测试连接到Mongolab数据库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$  NODE_ENV=production MONGOLAB_URI=mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds127958.mlab.com:27958/congyh nodemon</div><div class="line">Mongoose connected to mongodb:///&lt;dbuser&gt;:&lt;dbpassword&gt;@ds127958.mlab.com:27958/congyh</div></pre></td></tr></table></figure>
-<blockquote>
-<p>测试成功后, 将应用推送到Heroku仓库部署</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -am <span class="string">"add mongolab support"</span></div><div class="line">$ git push heroku master</div></pre></td></tr></table></figure>
-<p>通过检查heroku云端应用日志, 验证数据库连接情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ heroku logs</div><div class="line">...</div><div class="line">2016-12-11T05:08:18.152506+00:00 app[web.1]: Mongoose connected to mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds127958.mlab.com:27958/congyh</div></pre></td></tr></table></figure>
-<p>以上, 就完成了生产和开发环境连接不同数据库的配置.</p>
+        <p>Oracle数据库到MySQL数据库迁移过程中的一大难题就是主键生成策略的替换. 如果之前的程序中使用Oracle的<code>Sequence</code>机制来实现主键的自增的话. MySQL中需要另寻他法进行等价替换.</p>
+<p>替换的时候, 主要有两个地方需要修改:</p>
+<ul>
+<li>数据库存储过程;</li>
+<li>Java程序的修改</li>
+</ul>
+<h2 id="Java程序中的修改"><a href="#Java程序中的修改" class="headerlink" title="Java程序中的修改"></a>Java程序中的修改</h2><p>这里以Hibernate操作数据库为例进行演示.</p>
+<h3 id="使用Oracle-Sequence"><a href="#使用Oracle-Sequence" class="headerlink" title="使用Oracle Sequence"></a>使用Oracle Sequence</h3><p>假如你之前的程序使用的是<code>Sequence</code>, 这里以一个名为<code>SEQ</code>的<code>Sequence</code>为例,  那么你操作<code>id</code>字段的代码应该长的是下面这个样子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SequenceGenerator</span>(name = <span class="string">"generator"</span>, sequenceName = <span class="string">"SEQ"</span>)</div><div class="line"><span class="meta">@Id</span></div><div class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.SEQUENCE, generator = <span class="string">"generator"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用MySQL表模拟Oracle-Sequence"><a href="#使用MySQL表模拟Oracle-Sequence" class="headerlink" title="使用MySQL表模拟Oracle Sequence"></a>使用MySQL表模拟Oracle Sequence</h3><p>首先你需要在MySQL中建立一个表<code>sys_sequence</code>, 表中有两个字段, 一个是<code>seq_name</code>, 代表Oracle序列的名称, 另一个是<code>current_value</code>, 代表该序列的当前值(注意: 需要将此初始值设定为Oracle数据库中对应序列的当前值.). 表的样子如下:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; select * from sys_sequence;</div><div class="line">+--------------+------------+</div><div class="line">| seq_name     | curr_value |</div><div class="line">+--------------+------------+</div><div class="line">| SEQ          |      2809  |</div><div class="line">+--------------+------------+</div></pre></td></tr></table></figure>
+<p>. 然后在程序中如下编写:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* allocationSize是每次程序启动第一次插入时与之前最大值的差值.</div><div class="line">*/</div><div class="line"><span class="meta">@Id</span></div><div class="line"><span class="meta">@TableGenerator</span>(name = <span class="string">"sequence"</span>, table = <span class="string">"sys_sequence"</span>, pkColumnName = <span class="string">"seq_name"</span>, valueColumnName = <span class="string">"curr_value"</span>, pkColumnValue = <span class="string">"SEQ"</span>, allocationSize = <span class="number">1</span>)</div><div class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.TABLE, generator = <span class="string">"sequence"</span>)</div><div class="line"><span class="keyword">private</span> Long id;</div></pre></td></tr></table></figure>
+<h2 id="存储过程的修改"><a href="#存储过程的修改" class="headerlink" title="存储过程的修改"></a>存储过程的修改</h2><p>存储过程中, 主要涉及到<code>Sequence</code>的<code>nextval()</code>等方法的替换, 我们同样可以在MySQL中进行模拟.</p>
+<h3 id="使用Oracle-Sequence-1"><a href="#使用Oracle-Sequence-1" class="headerlink" title="使用Oracle Sequence"></a>使用Oracle Sequence</h3><p>假设我们现在有一个<code>Sequence</code>名为<code>SEQ</code>, 那么我们通常在存储过程中使用如下函数获得<code>SEQ</code>的下一个值:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SEQ.nextval</div></pre></td></tr></table></figure>
+<h3 id="使用MySQL模拟Oracle-Sequence"><a href="#使用MySQL模拟Oracle-Sequence" class="headerlink" title="使用MySQL模拟Oracle Sequence"></a>使用MySQL模拟Oracle Sequence</h3><p>首先需要创建一个表格, 用于存储所有序列的名称, 当前值以及递增步长. 这里我们继续沿用前面所述的<code>sys_sequence</code>表, 不过还需要为表新增一个字段<code>increment_by</code>, 我们对照Oracle数据库的设置手动进行<code>increment_by</code>初值的设定.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; select * from sys_sequence;</div><div class="line">+--------------+------------+--------------+</div><div class="line">| seq_name     | curr_value | increment_by |</div><div class="line">+--------------+------------+--------------+</div><div class="line">| SEQ          |      2809  |            1 |</div><div class="line">+--------------+------------+--------------+</div></pre></td></tr></table></figure>
+<p>然后在数据库中新增两个函数, 一个是<code>currval</code>, 用于获取模拟的<code>Sequence</code>的当前值:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`root`</span>@<span class="string">`%`</span> <span class="keyword">FUNCTION</span> <span class="string">`currval`</span>(<span class="string">`v_seq_name`</span> <span class="built_in">varchar</span>(<span class="number">50</span>)) <span class="keyword">RETURNS</span> <span class="built_in">decimal</span>(<span class="number">18</span>,<span class="number">0</span>)</div><div class="line"><span class="keyword">BEGIN</span></div><div class="line"><span class="keyword">DECLARE</span> v_currval <span class="built_in">DECIMAL</span>(<span class="number">18</span>);</div><div class="line">    <span class="keyword">SET</span> v_currval = <span class="number">1</span>;  </div><div class="line">    <span class="keyword">SELECT</span> curr_value <span class="keyword">INTO</span> v_currval <span class="keyword">FROM</span> sys_sequence <span class="keyword">WHERE</span> seq_name = v_seq_name;  </div><div class="line">    RETURN v_currval;  </div><div class="line"><span class="keyword">END</span></div></pre></td></tr></table></figure>
+<p> 另一个是<code>nextval</code>, 用户获取模拟的<code>Sequence</code>的下一个值:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`root`</span>@<span class="string">`%`</span> <span class="keyword">FUNCTION</span> <span class="string">`nextval`</span>(<span class="string">`v_seq_name`</span> <span class="built_in">varchar</span>(<span class="number">50</span>)) <span class="keyword">RETURNS</span> <span class="built_in">decimal</span>(<span class="number">18</span>,<span class="number">0</span>)</div><div class="line"><span class="keyword">BEGIN</span></div><div class="line">	  <span class="keyword">UPDATE</span> sys_sequence <span class="keyword">SET</span> curr_value = curr_value + increment_by <span class="keyword">WHERE</span> seq_name = v_seq_name;  </div><div class="line">    RETURN currval(v_seq_name);  </div><div class="line"><span class="keyword">END</span></div></pre></td></tr></table></figure>
+<p>之后在需要使用<code>Sequence</code>的地方, 使用如下语句替代即可:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nextval('SEQ')</div></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>如此一来, 就达到了利用MySQL的表来模拟Oracle的Sequence的目的. 以后每当有需要替换的序列, 都在前面建立的<code>sys_sequence</code>中新增一行即可.</p>
 
       
     </div>
@@ -519,11 +486,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           
-            <a href="/tags/Heroku/" rel="tag"># Heroku</a>
+            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
           
-            <a href="/tags/Mongolab/" rel="tag"># Mongolab</a>
+            <a href="/tags/数据库迁移/" rel="tag"># 数据库迁移</a>
+          
+            <a href="/tags/Sequence/" rel="tag"># Sequence</a>
+          
+            <a href="/tags/Hibernate/" rel="tag"># Hibernate</a>
+          
+            <a href="/tags/存储过程/" rel="tag"># 存储过程</a>
           
         </div>
       
@@ -532,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/10/baidumap-static-api/" rel="next" title="百度地图静态图API使用指南">
-                <i class="fa fa-chevron-left"></i> 百度地图静态图API使用指南
+              <a href="/2016/12/11/full-stack4/" rel="next" title="Heroku连接云端MongoDB的方法">
+                <i class="fa fa-chevron-left"></i> Heroku连接云端MongoDB的方法
               </a>
             
           </div>
@@ -541,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/03/db-migrate1/" rel="prev" title="Oracle到MySQL数据库迁移之--主键生成策略替换">
-                Oracle到MySQL数据库迁移之--主键生成策略替换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,10 +528,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/11/full-stack4/"
-     data-title="Heroku连接云端MongoDB的方法"
+        <div class="ds-share flat" data-thread-key="2017/01/03/db-migrate1/"
+     data-title="Oracle到MySQL数据库迁移之--主键生成策略替换"
      data-content=""
-     data-url="https://congyh.github.io/2016/12/11/full-stack4/">
+     data-url="https://congyh.github.io/2017/01/03/db-migrate1/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -593,8 +562,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/11/full-stack4/"
-           data-title="Heroku连接云端MongoDB的方法" data-url="https://congyh.github.io/2016/12/11/full-stack4/">
+      <div class="ds-thread" data-thread-key="2017/01/03/db-migrate1/"
+           data-title="Oracle到MySQL数据库迁移之--主键生成策略替换" data-url="https://congyh.github.io/2017/01/03/db-migrate1/">
       </div>
     
   </div>
@@ -709,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册MongoLab账号"><span class="nav-number">1.</span> <span class="nav-text">注册MongoLab账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个新数据库"><span class="nav-number">2.</span> <span class="nav-text">创建一个新数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步本地开发数据库的测试数据到Mongolab"><span class="nav-number">3.</span> <span class="nav-text">同步本地开发数据库的测试数据到Mongolab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#让应用根据环境自动选择连接的数据库"><span class="nav-number">4.</span> <span class="nav-text">让应用根据环境自动选择连接的数据库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java程序中的修改"><span class="nav-number">1.</span> <span class="nav-text">Java程序中的修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Oracle-Sequence"><span class="nav-number">1.1.</span> <span class="nav-text">使用Oracle Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用MySQL表模拟Oracle-Sequence"><span class="nav-number">1.2.</span> <span class="nav-text">使用MySQL表模拟Oracle Sequence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程的修改"><span class="nav-number">2.</span> <span class="nav-text">存储过程的修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Oracle-Sequence-1"><span class="nav-number">2.1.</span> <span class="nav-text">使用Oracle Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用MySQL模拟Oracle-Sequence"><span class="nav-number">2.2.</span> <span class="nav-text">使用MySQL模拟Oracle Sequence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>

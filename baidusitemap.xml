@@ -4,6 +4,41 @@
 
     
   <url>
+    <loc>https://congyh.github.io/2017/01/03/db-migrate1/</loc>
+    <lastmod>2017-01-03T06:40:35.989Z</lastmod>
+    <data>
+        <display>
+        <title>Oracle到MySQL数据库迁移之--主键生成策略替换</title>
+        <pubTime>2017-01-03T06:40:35.000Z</pubTime>
+        
+        <tag>MySQL</tag>
+         
+        <tag>Oracle</tag>
+         
+        <tag>数据库迁移</tag>
+         
+        <tag>Sequence</tag>
+         
+        <tag>Hibernate</tag>
+         
+        <tag>存储过程</tag>
+         
+         
+           
+             
+              <breadCrumb title="MySQL" url="https://congyh.github.io/categories/MySQL/"/>
+          
+             
+              <breadCrumb title="Oracle" url="https://congyh.github.io/categories/MySQL/Oracle/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
     <loc>https://congyh.github.io/2016/12/11/full-stack4/</loc>
     <lastmod>2016-12-11T05:13:26.678Z</lastmod>
     <data>
@@ -115,8 +150,6 @@
     </data>
     </url>
 
-    
-    
     
   <url>
     <loc>https://congyh.github.io/2016/12/09/full-stack-1/</loc>
