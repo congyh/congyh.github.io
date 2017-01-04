@@ -14,19 +14,19 @@ date: 2017-01-03 14:40:35
 ---
 
 
-Oracle数据库到MySQL数据库迁移过程中的一大难题就是主键生成策略的替换. 如果之前的程序中使用Oracle的`Sequence`机制来实现主键的自增的话. MySQL中需要另寻他法进行等价替换.
+Oracle数据库到MySQL数据库迁移过程中的一大难题就是主键生成策略的替换. 如果之前的程序中使用Oracle的`Sequence`机制来实现主键的自增的话. MySQL中需要使用`TableGenerator`进行等价替换.
 
-替换的时候, 主要有两个地方需要修改:
+替换的时候, 主要有三个地方需要修改:
+- 以注解方式完成hibernate映射的实体;
+- 以xml方式完成hibernate映射的实体;
 - 数据库存储过程;
-- Java程序的修改
 
-## Java程序中的修改
-这里以Hibernate操作数据库为例进行演示.
-
+## 注解方式完成hibernate映射的实体的修改
 ### 使用Oracle Sequence
 假如你之前的程序使用的是`Sequence`, 这里以一个名为`SEQ`的`Sequence`为例,  那么你操作`id`字段的代码应该长的是下面这个样子:
 
 ```java
+// 注意: 如果不指定sequenceName的话, 默认为HIBERNATE_SEQUENCE, 这个序列也需要在Oracle中手动建立.
 @SequenceGenerator(name = "generator", sequenceName = "SEQ")
 @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
@@ -56,6 +56,33 @@ public Long getId() {
 @TableGenerator(name = "sequence", table = "sys_sequence", pkColumnName = "seq_name", valueColumnName = "curr_value", pkColumnValue = "SEQ", allocationSize = 1)
 @GeneratedValue(strategy = GenerationType.TABLE, generator = "sequence")
 private Long id;
+```
+
+## xml方式完成hibernate映射的实体的修改
+### 使用Oracle Sequence
+之前使用`Sequence`作为主键生成策略的时候, xml映射文件片段如下:
+
+```xml
+<id name="id">
+    <generator class="sequence">
+        <param name="sequence">SEQ</param>
+    </generator>
+</id>
+```
+
+### 使用MySQL表模拟Oracle Sequence
+表的结构与前面注解方式所用的表结构相同. 这次我们在xml中使用的generator是`org.hibernate.id.enhanced.TableGenerator`:
+
+```xml
+<id name="id">
+    <generator class="org.hibernate.id.enhanced.TableGenerator">
+        <param name="table_name">sys_sequence</param>
+        <param name="segment_column_name">seq_name</param>
+        <param name="value_column_name">curr_value</param>
+        <param name="segment_value">SEQ</param>
+        <param name="increment_size">1</param>
+    </generator>
+</id>
 ```
 
 ## 存储过程的修改
