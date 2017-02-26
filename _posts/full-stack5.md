@@ -1,8 +1,15 @@
 ---
 title: 使用REST API操作MongoDB(一)
-tags: [REST,MongoDB,Express]
-categories: [MongoDB,Express]
+tags:
+  - REST
+  - MongoDB
+  - Express
+categories:
+  - MongoDB
+  - Express
+date: 2017-02-26 12:58:52
 ---
+
 
 使用REST API, 我们能够通过HTTP请求来对MongoDB进行CRUD操作. REST API对于我们的应用来说就是一个无状态的接口, 对于MEAN技术栈来讲, REST API的地位是创建一个暴露一个操作数据库的无状态接口, 供其他应用操作数据库的数据.
 

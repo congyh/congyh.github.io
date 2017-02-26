@@ -1,8 +1,12 @@
 ---
 title: Angular基础(二)--第一个Angular程序
-tags: [Angular]
-categories: [Angular]
+tags:
+  - Angular
+categories:
+  - Angular
+date: 2017-02-26 12:58:25
 ---
+
 
 ### 添加Angular到现有的web程序中的方法
 > #### 步骤1: 下载Angular的lib

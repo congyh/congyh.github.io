@@ -1,8 +1,10 @@
 ---
 title: Angular基础(一)
+date: 2017-02-26 12:58:16
 tags:
 categories:
 ---
+
 
 Angular是客户端的框架, 让我们能够在浏览器中构建整个应用程序.
 我们能够使用Angular来与REST API进行交互.
